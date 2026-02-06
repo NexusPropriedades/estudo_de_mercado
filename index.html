@@ -345,24 +345,25 @@
             margin-bottom: 3.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             text-align: center; display: flex; flex-direction: column; align-items: center;
         }
+        /* Estilo padrão da Tag (Pílula) */
         .mkt-tag {
-            display: inline-block; background-color: var(--nexus-black); color: #ffffff;
-            padding: 0.8rem 2.5rem; border-radius: 50px; font-size: 1.3rem;
-            font-weight: 600; margin-bottom: 2.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: inline-block; 
+            background-color: var(--nexus-black); /* Fundo Preto Padrão */
+            color: #ffffff; 
+            padding: 0.8rem 2.5rem; 
+            border-radius: 50px; 
+            font-size: 1.3rem;
+            font-weight: 600; 
+            margin-bottom: 2.5rem; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease; /* Transição suave */
         }
-/* ... logo após .mkt-tag { ... } ... */
 
-        /* EFEITO HOVER PEDIDO: Fundo Laranja e Texto Escuro ao passar o mouse no bloco */
+        /* EFEITO HOVER: Quando passa o mouse no bloco, a tag vira laranja */
         .mkt-block:hover .mkt-tag {
             background-color: var(--nexus-orange-1);
-            color: var(--nexus-black);
-            transition: all 0.3s ease;
-        }
-        
-        /* Opcional: Adiciona uma transição suave no estado normal também */
-        .mkt-tag {
-            /* ... mantenha as propriedades anteriores ... */
-            transition: all 0.3s ease;
+            color: var(--nexus-black); /* Texto fica escuro para contraste */
+            transform: scale(1.05); /* Leve aumento para destaque */
         }
 
         .mkt-text {
