@@ -76,8 +76,6 @@
         @media (max-width: 768px) {
             .section-title { font-size: 2rem; margin-bottom: 2rem; }
             .container { padding: 0 1.5rem; }
-            
-            /* Ativa a dica de scroll no mobile */
             .mobile-scroll-hint { display: block; }
         }
 
@@ -114,8 +112,8 @@
             background-color: var(--bg-alt); padding: var(--section-padding);
         }
         .about-nexus-section .section-title { 
-    color: var(--nexus-orange-1); /* Mudado para Laranja */
-    margin-bottom: 4rem; letter-spacing: 1px; 
+            color: var(--nexus-orange-1); /* TÍTULO LARANJA */
+            margin-bottom: 4rem; letter-spacing: 1px; 
         }
         .about-list { display: flex; flex-direction: column; gap: 2rem; }
         .about-item {
@@ -135,11 +133,10 @@
             .about-item { flex-direction: column; text-align: center; gap: 1rem; padding: 1.5rem; }
         }
 
-        /* --- 02 - CORRETOR (CORRIGIDO PARA MOBILE) --- */
+        /* --- 02 - CORRETOR --- */
         .realtor-section {
             background-color: var(--bg-light); padding: var(--section-padding);
         }
-        /* PC: Grid Padrão */
         .realtor-card {
             background-color: #ffffff; border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.05); padding: 3rem;
@@ -173,41 +170,25 @@
             background-color: var(--nexus-orange-1); border-radius: 50%;
         }
         
-        /* CORREÇÃO MOBILE - LAYOUT FLUIDO E LIMPO */
+        /* Responsividade Mobile (Centralizado) */
         @media (max-width: 900px) {
             .realtor-card { 
-                display: flex; 
-                flex-direction: column; 
-                padding: 2rem 1.5rem; /* Padding lateral menor */
-                gap: 2rem;
+                display: flex; flex-direction: column; 
+                padding: 2rem 1.5rem; gap: 2rem;
             }
             .realtor-image-container { 
-                width: 100%; 
-                height: auto; 
-                aspect-ratio: 1 / 1; /* Garante quadrado perfeito ou levemente retrato */
-                max-width: 400px; /* Não deixa ficar gigante em tablets */
-                margin: 0 auto; /* Centraliza a imagem */
+                width: 100%; height: auto; 
+                aspect-ratio: 1 / 1; max-width: 400px; margin: 0 auto;
             }
             .realtor-info { 
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center; /* Centraliza tudo */
-                text-align: center;
+                width: 100%; display: flex; flex-direction: column;
+                align-items: center; text-align: center;
             }
-            .contact-info p { 
-                justify-content: center; 
-                flex-wrap: wrap; /* Quebra linha se o email for longo */
-            }
+            .contact-info p { justify-content: center; flex-wrap: wrap; }
             .realtor-details { 
-                width: 100%;
-                display: flex; 
-                flex-direction: column; 
-                gap: 2rem;
-                text-align: left; /* Lista deve ser alinhada a esquerda para leitura */
-                align-items: flex-start; /* Força alinhamento à esquerda do bloco */
+                width: 100%; display: flex; flex-direction: column; 
+                gap: 2rem; text-align: left; align-items: flex-start;
             }
-            /* Garante que o titulo da lista fique alinhado com a lista */
             .realtor-details > div { width: 100%; }
         }
 
@@ -230,47 +211,36 @@
         }
         .sold-grid img:hover { transform: scale(1.03); }
 
-        /* --- 04 - GRÁFICO TEMPO X PREÇO (SCROLLBAR FORCE) --- */
+        /* --- 04 - GRÁFICO TEMPO X PREÇO --- */
         .tempo-x-preco-section {
             background-color: var(--bg-light); padding: var(--section-padding); text-align: center;
         }
         .tempo-x-preco-section .section-title { color: var(--nexus-black); margin-bottom: 3rem; }
         
         .chart-scroll-container {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            padding-bottom: 15px; /* Espaço para a barra */
+            width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 15px;
         }
-        
-        /* HACK PARA FORÇAR BARRA LARANJA NO MOBILE (WEBKIT) */
+        /* Custom Scrollbar */
         .chart-scroll-container::-webkit-scrollbar,
         .table-container::-webkit-scrollbar,
         .chart-container-scroll::-webkit-scrollbar {
-            height: 12px; /* Altura visível */
-            background-color: #f0f0f0; /* Fundo do trilho */
-            border-radius: 6px;
-            -webkit-appearance: none; /* Tenta forçar override do OS */
+            height: 12px; background-color: #f0f0f0; border-radius: 6px; -webkit-appearance: none;
         }
         .chart-scroll-container::-webkit-scrollbar-thumb,
         .table-container::-webkit-scrollbar-thumb,
         .chart-container-scroll::-webkit-scrollbar-thumb {
-            background-color: var(--nexus-orange-1); /* Laranja Nexus */
-            border-radius: 6px;
-            border: 2px solid #f0f0f0;
+            background-color: var(--nexus-orange-1); border-radius: 6px; border: 2px solid #f0f0f0;
         }
 
         .chart-wrapper {
             position: relative; max-width: 800px; height: 400px;
-            margin: 0 auto 2rem auto; padding: 20px 20px 40px 60px;
-            overflow: visible; 
+            margin: 0 auto 2rem auto; padding: 20px 20px 40px 60px; overflow: visible; 
         }
-        
         .chart-area {
             position: relative; width: 100%; height: 100%;
             border-left: 4px solid var(--nexus-orange-1);
             border-bottom: 4px solid var(--nexus-orange-1);
-            min-width: 700px; /* Garante que o gráfico não esmague no mobile */
+            min-width: 700px;
         }
         .chart-area::before {
             content: ''; position: absolute; top: -10px; left: -9px;
@@ -316,6 +286,10 @@
         .nexus-services-section {
             background-color: var(--bg-light); padding: var(--section-padding); text-align: center;
         }
+        .nexus-services-section .section-title {
+            color: var(--nexus-orange-1); /* TÍTULO LARANJA */
+            font-size: 2.5rem; margin-bottom: 4rem; font-weight: 700;
+        }
         .services-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 3rem; justify-content: center;
@@ -333,37 +307,30 @@
             line-height: 1.3; margin: 0; max-width: 220px;
         }
 
-        .nexus-services-section .section-title {
-    color: var(--nexus-orange-1); /* Mudado para Laranja */
-    font-size: 2.5rem; margin-bottom: 4rem; font-weight: 700;
-        }
-        /* --- 07 - PLANO DE MARKETING --- */
+        /* --- 07 - PLANO DE MARKETING (CORRIGIDO HOVER E BIZARRICE) --- */
         .marketing-section { background-color: var(--bg-alt); padding: var(--section-padding); }
         .marketing-section .section-title { letter-spacing: 1px; margin-bottom: 4rem; }
+        
         .mkt-block {
             background-color: #fff; border-radius: 20px; padding: 3rem;
             margin-bottom: 3.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             text-align: center; display: flex; flex-direction: column; align-items: center;
         }
-        /* Estilo padrão da Tag (Pílula) */
+        
+        /* Estilo da Tag corrigido */
         .mkt-tag {
             display: inline-block; 
-            background-color: var(--nexus-black); /* Fundo Preto Padrão */
-            color: #ffffff; 
-            padding: 0.8rem 2.5rem; 
-            border-radius: 50px; 
-            font-size: 1.3rem;
-            font-weight: 600; 
-            margin-bottom: 2.5rem; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s ease; /* Transição suave */
+            background-color: var(--nexus-black); color: #ffffff;
+            padding: 0.8rem 2.5rem; border-radius: 50px; font-size: 1.3rem;
+            font-weight: 600; margin-bottom: 2.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
         }
 
-        /* EFEITO HOVER: Quando passa o mouse no bloco, a tag vira laranja */
+        /* Efeito Hover Corrigido */
         .mkt-block:hover .mkt-tag {
             background-color: var(--nexus-orange-1);
-            color: var(--nexus-black); /* Texto fica escuro para contraste */
-            transform: scale(1.05); /* Leve aumento para destaque */
+            color: var(--nexus-black);
+            transform: scale(1.05);
         }
 
         .mkt-text {
@@ -411,11 +378,10 @@
 
         /* --- 08 - OBJETIVO DO ESTUDO --- */
         .objective-section {
-            background-color: var(--bg-light); color: var(--nexus-black); padding:         5rem 2rem; text-align: center;
+            background-color: var(--bg-light); color: var(--nexus-black); padding: 5rem 2rem; text-align: center;
         }
-        /* Adicione ou altere o h2 aqui */
         .objective-section .section-title {
-            color: var(--nexus-orange-1); /* Mudado para Laranja */
+            color: var(--nexus-orange-1); /* TÍTULO LARANJA */
             margin-bottom: 1.5rem;
         }
         .objective-content { max-width: 850px; margin: 0 auto; font-size: 1.3rem; line-height: 1.7; }
@@ -424,10 +390,9 @@
         .methodology-section {
             background-color: var(--bg-alt); padding: var(--section-padding); text-align: center;
         }
-
         .methodology-section .section-title {
-    color: var(--nexus-orange-1); /* Mudado para Laranja */
-    font-size: 2.5rem; margin-bottom: 3rem; font-weight: 700;
+            color: var(--nexus-orange-1); /* TÍTULO LARANJA */
+            font-size: 2.5rem; margin-bottom: 3rem; font-weight: 700;
         }
         .methodology-list { display: flex; flex-direction: column; gap: 2.5rem; max-width: 850px; margin: 0 auto; }
         .methodology-item {
@@ -442,18 +407,19 @@
             .methodology-item p { text-align: center; }
         }
 
-        /* --- 10 - VANTAGENS PRECIFICAÇÃO --- */
-        /* ... dentro de 10 - VANTAGENS PRECIFICAÇÃO ... */
-
-        .advantages-section .section-title {
-            color: var(--nexus-black); /* Título agora em Preto */
+        /* --- 10 - VANTAGENS PRECIFICAÇÃO (CORRIGIDO: Texto Escuro) --- */
+        .advantages-section { background-color: var(--bg-light); padding: var(--section-padding); }
+        .advantages-section .section-title { 
+            color: var(--nexus-black); /* TÍTULO PRETO */
             margin-bottom: 3rem; text-align: center; line-height: 1.2;
         }
-
+        .advantages-list { display: flex; flex-direction: column; gap: 1.5rem; max-width: 950px; margin: 0 auto; }
+        .advantage-item { display: flex; align-items: center; gap: 1.5rem; }
+        .advantage-icon-svg { width: 45px; height: 45px; flex-shrink: 0; fill: #28a745; }
         .advantage-bar {
             background-color: #ffffff; /* Fundo Branco */
             color: var(--nexus-black); /* Texto Preto */
-            border: 2px solid var(--nexus-orange-1); /* Borda Laranja para manter a marca */
+            border: 2px solid var(--nexus-orange-1); /* Borda Laranja */
             padding: 1.2rem 2rem;
             border-radius: 10px; width: 100%; text-align: center;
             font-size: 1.3rem; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -463,7 +429,7 @@
             .advantage-bar { font-size: 1.1rem; padding: 1rem; }
         }
 
-        /* --- 11 - RELAÇÃO PREÇO X VENDA (SCROLLBAR FORCE) --- */
+        /* --- 11 - RELAÇÃO PREÇO X VENDA --- */
         .price-relation-section {
             background-color: var(--bg-alt); 
             padding: var(--section-padding);
@@ -481,10 +447,9 @@
         .chart-container-scroll {
             width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 15px;
         }
-        
         .chart-container { 
             max-width: 1000px; margin: 0 auto; position: relative; padding: 20px 0;
-            min-width: 800px; /* Força scroll lateral */
+            min-width: 800px;
         }
         
         .boxes-row {
@@ -529,11 +494,10 @@
         .factors-section {
             background-color: var(--bg-light); padding: var(--section-padding); text-align: center;
         }
-
         .factors-section .section-title {
-    color: var(--nexus-orange-1); /* Mudado para Laranja */
-    font-size: 2.5rem; margin-bottom: 1.5rem;
-    font-weight: 700; line-height: 1.2;
+            color: var(--nexus-orange-1); /* TÍTULO LARANJA */
+            font-size: 2.5rem; margin-bottom: 1.5rem;
+            font-weight: 700; line-height: 1.2;
         }
         .factors-text {
             max-width: 850px; margin: 0 auto 4rem auto; font-size: 1.4rem; font-weight: 400; color: #444;
@@ -585,7 +549,7 @@
         .card.image-card { padding: 0; overflow: hidden; min-height: 280px; }
         .property-main-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* --- 14 - IMÓVEIS SIMILARES (CORRIGIDO SCROLLBAR) --- */
+        /* --- 14 - IMÓVEIS SIMILARES (CORRIGIDO HARMONIA CARDS) --- */
         .comparables-section { 
             background-color: var(--bg-light); padding: 4rem 2rem; 
         }
@@ -602,74 +566,32 @@
         table a { color: var(--nexus-orange-1); text-decoration: none; font-weight: 600; }
         tbody tr:hover a { color: var(--nexus-orange-1); text-decoration: underline; }
         
+        /* CSS ATUALIZADO CARDS MÉDIA */
         .averages-grid {
-            display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem;
-            width: 100%; max-width: 500px; margin-left: auto; margin-right: auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;
+            width: 100%; max-width: 800px; margin-left: auto; margin-right: auto;
         }
-
-        /* --- TRECHO CSS ATUALIZADO (Cards de Média) --- */
-        
-        .averages-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
-            width: 100%;
-            max-width: 800px; /* Um pouco mais largo para dar respiro no Tablet/PC */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         .average-card {
-            background-color: #fff;
-            border-radius: 15px;
-            padding: 2.5rem 1.5rem; /* Mais espaçamento interno */
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid #eee; /* Borda suave para definição */
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            
-            /* Garante centralização vertical do conteúdo */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-color: #fff; border-radius: 15px; padding: 2.5rem 1.5rem;
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eee; transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
-
         .average-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--nexus-orange-1);
+            transform: translateY(-5px); border-color: var(--nexus-orange-1);
             box-shadow: 0 15px 40px rgba(255, 87, 28, 0.15);
         }
-
         .average-title {
-            display: block;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem; /* Espaço entre título e valor */
-            color: var(--nexus-orange-1); /* Laranja Nexus */
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700; /* Negrito */
+            display: block; font-size: 1.1rem; margin-bottom: 0.5rem;
+            color: var(--nexus-orange-1); text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
         }
-
         .average-value {
-            display: block;
-            font-size: 2.2rem; /* Bem grande para destaque */
-            font-weight: 800;
-            color: var(--nexus-black); /* Preto para contraste harmônico */
-            line-height: 1.2;
+            display: block; font-size: 2.2rem; font-weight: 800;
+            color: var(--nexus-black); line-height: 1.2;
         }
-
-        /* Ajuste Responsivo Mobile */
         @media (max-width: 768px) {
-            .averages-grid {
-                grid-template-columns: 1fr; /* Um embaixo do outro */
-                gap: 1.5rem;
-                max-width: 100%;
-            }
-            .average-value {
-                font-size: 2rem; /* Levemente menor no celular para não quebrar */
-            }
+            .averages-grid { grid-template-columns: 1fr; gap: 1.5rem; max-width: 100%; }
+            .average-value { font-size: 2rem; }
         }
 
         /* --- 15 - RESULTADOS EM --- */
@@ -739,7 +661,7 @@
         }
         .thermo-labels { display: flex; justify-content: space-between; font-size: 1.1rem; color: #555; font-weight: 600; }
 
-        /* --- 16 - PRÓXIMOS PASSOS (CORRIGIDO SETA MOBILE) --- */
+        /* --- 16 - PRÓXIMOS PASSOS --- */
         .proximos-passos-section {
             background-color: var(--bg-light); padding: 8rem 2rem; text-align: center;
         }
@@ -752,7 +674,6 @@
             position: absolute; top: 25px; left: 50px; right: 50px; height: 6px;
             background-color: var(--nexus-orange-1); z-index: 0; border-radius: 4px;
         }
-        /* SETA DESKTOP (Horizontal) */
         .timeline-line::after {
             content: ''; position: absolute; top: -5px; right: -10px; width: 0; height: 0;
             border-top: 8px solid transparent; border-bottom: 8px solid transparent;
@@ -787,24 +708,19 @@
         }
         .current-step .step-label { color: var(--nexus-orange-2); font-weight: 800; }
         
-        /* CORREÇÃO SETA MOBILE (Vertical) */
         @media (max-width: 768px) {
             .timeline-container { flex-direction: column; align-items: flex-start; gap: 2.5rem; padding-left: 1rem; }
-            .timeline-line { 
-                top: 20px; bottom: -20px; /* Estende para caber a seta */ 
-                left: 35px; width: 6px; height: auto; right: auto; 
-            }
+            .timeline-line { top: 20px; bottom: -20px; left: 35px; width: 6px; height: auto; right: auto; }
             
             /* Seta Vertical */
             .timeline-line::after {
-                top: auto; bottom: -10px; right: auto; left: -4px; /* Reposiciona */
-                border-top: 14px solid var(--nexus-orange-1); /* Seta para baixo */
+                top: auto; bottom: -10px; right: auto; left: -4px;
+                border-top: 14px solid var(--nexus-orange-1);
                 border-left: 8px solid transparent; 
                 border-right: 8px solid transparent;
                 border-bottom: none;
-                display: block; /* Garante visibilidade */
+                display: block;
             }
-            
             .timeline-step { flex-direction: row; gap: 1.5rem; width: 100%; text-align: left; }
             .step-label { margin-top: 0; text-align: left; br { display: none; } }
             .step-marker-highlight { margin-top: 0; margin-left: -7px; }
