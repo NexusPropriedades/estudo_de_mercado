@@ -562,20 +562,71 @@
             display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem;
             width: 100%; max-width: 500px; margin-left: auto; margin-right: auto;
         }
-        /* CORREÇÃO MOBILE CARDS MÉDIA */
-        @media (max-width: 768px) {
-            .averages-grid { grid-template-columns: 1fr; max-width: 100%; }
+
+        /* --- TRECHO CSS ATUALIZADO (Cards de Média) --- */
+        
+        .averages-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+            width: 100%;
+            max-width: 800px; /* Um pouco mais largo para dar respiro no Tablet/PC */
+            margin-left: auto;
+            margin-right: auto;
         }
+
         .average-card {
-            background-color: #fff; border-radius: 15px; padding: 2rem; text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 2px solid transparent;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 2.5rem 1.5rem; /* Mais espaçamento interno */
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eee; /* Borda suave para definição */
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            
+            /* Garante centralização vertical do conteúdo */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
         .average-card:hover {
-            transform: translateY(-5px); border-color: var(--nexus-orange-1);
+            transform: translateY(-5px);
+            border-color: var(--nexus-orange-1);
+            box-shadow: 0 15px 40px rgba(255, 87, 28, 0.15);
         }
-        .average-title { display: block; font-size: 1.1rem; margin-bottom: 0.8rem; color: #555; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-        .average-value { display: block; font-size: 2.4rem; font-weight: 800; color: var(--nexus-orange-1); }
+
+        .average-title {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem; /* Espaço entre título e valor */
+            color: var(--nexus-orange-1); /* Laranja Nexus */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700; /* Negrito */
+        }
+
+        .average-value {
+            display: block;
+            font-size: 2.2rem; /* Bem grande para destaque */
+            font-weight: 800;
+            color: var(--nexus-black); /* Preto para contraste harmônico */
+            line-height: 1.2;
+        }
+
+        /* Ajuste Responsivo Mobile */
+        @media (max-width: 768px) {
+            .averages-grid {
+                grid-template-columns: 1fr; /* Um embaixo do outro */
+                gap: 1.5rem;
+                max-width: 100%;
+            }
+            .average-value {
+                font-size: 2rem; /* Levemente menor no celular para não quebrar */
+            }
+        }
 
         /* --- 15 - RESULTADOS EM --- */
         .pricing-section {
@@ -1307,12 +1358,12 @@
                 </div>
                 <div class="averages-grid">
                     <div class="average-card">
-                        <span>Média de Preço (Total)</span>
-                        <strong>R$ 1.473.400,00</strong>
+                        <span class="average-title">Média de Preço (Total):</span>
+                        <strong class="average-value">R$ 1.473.400,00</strong>
                     </div>
                     <div class="average-card">
-                        <span>Média de Preço (m²)</span>
-                        <strong>R$ 5.348,44</strong>
+                        <span class="average-title">Média de Preço (m²):</span>
+                        <strong class="average-value">R$ 5.348,44</strong>
                     </div>
                 </div>
             </div>
