@@ -1,0 +1,1497 @@
+HTML Página EM Nexus - versão completa 09 - 2026.02.04 - 21h00m - Pronta para o Make
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Estudo de Mercado - {{1.EM_ID}} - {{1.proprietario_nome}}</title>
+    <style>
+        /* --- IMPORTAÇÃO DE FONTES E VARIÁVEIS GLOBAIS --- */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+        :root {
+            --nexus-orange: #ff5518;
+            --medium-gray: #383740; /* Cinza Escuro Original */
+            --lead-gray: #363636;   /* Cinza Chumbo (Novos Setores) */
+            --light-gray: #f4f4f4;  /* Fundo Claro Padrão */
+            --text-color: #333;
+            --white: #ffffff;
+            --plumb-gray: #bdb2c9;
+            --section-padding: 4rem 2rem;
+            
+            /* Cores de Precificação */
+            --color-unlikely: #dc3545;
+            --color-market: #ffc107;
+            --color-competitive: #28a745;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Utility Classes */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .text-center { text-align: center; }
+        
+        /* Títulos Padrão */
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* -----------------------------------------------------------
+           00 - INICIAL (HERO)
+           ----------------------------------------------------------- */
+        .hero-section {
+            background-color: #f4f4f4;
+            padding: 5rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .hero-section .logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 2.5rem;
+            display: inline-block;
+        }
+        .hero-title {
+            color: var(--lead-gray);
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            line-height: 1.2;
+        }
+        .hero-subtitle {
+            color: #555555;
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin: 0 0 0.5rem 0;
+            opacity: 0.9;
+        }
+        .hero-address {
+            color: var(--lead-gray);
+            font-size: 1.6rem;
+            font-style: italic;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+        @media (max-width: 600px) {
+            .hero-section { padding: 3rem 1.5rem; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-address { font-size: 1.3rem; }
+        }
+
+        /* -----------------------------------------------------------
+           01 - SOBRE A NEXUS
+           ----------------------------------------------------------- */
+        .about-nexus-section {
+            background-color: #f4f4f4;
+            padding: 5rem 2rem;
+        }
+        .about-nexus-section .section-title {
+            color: var(--lead-gray);
+            margin-bottom: 4rem;
+            letter-spacing: 1px;
+        }
+        .about-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        .about-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .about-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
+        .about-icon-box {
+            width: 80px; height: 80px;
+            background-color: #f4f4f4;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .about-icon-box img { width: 40px; height: auto; }
+        .about-item p { font-size: 1.3rem; color: #555; margin: 0; font-weight: 400; line-height: 1.4; }
+        @media (max-width: 600px) {
+            .about-nexus-section { padding: 3rem 1.5rem; }
+            .about-item { flex-direction: column; text-align: center; gap: 1rem; }
+        }
+
+        /* -----------------------------------------------------------
+           02 - CORRETOR
+           ----------------------------------------------------------- */
+        .realtor-section {
+            background-color: #f4f4f4;
+            padding: 4rem 2rem;
+        }
+        .realtor-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .realtor-image-container {
+            width: 100%; height: 450px; position: relative;
+        }
+        .realtor-image-container img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .realtor-info { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+        .realtor-info h3 { color: var(--nexus-orange); font-size: 2.2rem; margin-bottom: 0.5rem; margin-top: 0; font-weight: 700; }
+        .creci-tag {
+            display: inline-block; background-color: #f0f0f0; color: #666;
+            padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.9rem;
+            font-weight: 500; margin-bottom: 1.5rem; width: fit-content;
+        }
+        .contact-info p { margin-bottom: 0.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .contact-info strong { color: var(--medium-gray); min-width: 80px; }
+        .contact-info a { color: var(--nexus-orange); text-decoration: none; font-weight: 500; }
+        .realtor-details {
+            margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+        }
+        .realtor-details h4 {
+            color: var(--medium-gray); font-size: 1.1rem; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 1rem; border-bottom: 2px solid var(--nexus-orange);
+            padding-bottom: 0.5rem; display: inline-block;
+        }
+        .realtor-details ul { list-style: none; padding: 0; margin: 0; }
+        .realtor-details li {
+            margin-bottom: 0.6rem; font-size: 0.95rem; color: #555; position: relative; padding-left: 1.5rem;
+        }
+        .realtor-details li::before {
+            content: ''; position: absolute; left: 0; top: 6px; width: 6px; height: 6px;
+            background-color: var(--nexus-orange); border-radius: 50%;
+        }
+        @media (max-width: 900px) {
+            .realtor-card { grid-template-columns: 1fr; padding: 2rem; text-align: center; }
+            .realtor-image-container { height: 400px; max-width: 100%; }
+            .creci-tag { margin: 0 auto 1.5rem auto; }
+            .contact-info p { justify-content: center; }
+            .realtor-details { grid-template-columns: 1fr; text-align: left; }
+        }
+
+        /* -----------------------------------------------------------
+           03 - EXEMPLOS IMÓVEIS VENDIDOS
+           ----------------------------------------------------------- */
+        .sold-examples-section {
+            background-color: #f4f4f4;
+            padding: var(--section-padding);
+            text-align: center;
+        }
+        .sold-examples-section .section-title { color: var(--nexus-orange); margin-bottom: 1.5rem; }
+        .sold-examples-text {
+            max-width: 800px; margin: 0 auto 3rem auto; font-size: 1.1rem;
+            color: var(--nexus-orange); font-weight: 500;
+        }
+        .sold-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; align-items: center;
+        }
+        .sold-grid img {
+            width: 100%; height: auto; border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease;
+        }
+        .sold-grid img:hover { transform: scale(1.03); }
+
+        /* -----------------------------------------------------------
+           04 - GRÁFICO TEMPO X PREÇO
+           ----------------------------------------------------------- */
+        .tempo-x-preco-section {
+            background-color: #f4f4f4;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #333;
+        }
+        .tempo-x-preco-section .section-title {
+            color: var(--lead-gray);
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+        .chart-wrapper {
+            position: relative; max-width: 800px; height: 400px;
+            margin: 0 auto 2rem auto; padding: 20px 20px 40px 60px;
+        }
+        .chart-area {
+            position: relative; width: 100%; height: 100%;
+            border-left: 4px solid var(--nexus-orange);
+            border-bottom: 4px solid var(--nexus-orange);
+        }
+        .chart-area::before {
+            content: ''; position: absolute; top: -10px; left: -9px;
+            border-left: 9px solid transparent; border-right: 9px solid transparent;
+            border-bottom: 12px solid var(--nexus-orange);
+        }
+        .chart-area::after {
+            content: ''; position: absolute; bottom: -9px; right: -10px;
+            border-top: 9px solid transparent; border-bottom: 9px solid transparent;
+            border-left: 12px solid var(--nexus-orange);
+        }
+        .axis-label {
+            position: absolute; font-weight: 700; font-size: 1.1rem;
+            color: var(--nexus-orange);
+        }
+        .y-label { top: 0; left: 0; transform: translateY(10px); }
+        .x-label { bottom: -35px; right: 0; }
+        .dashed-line {
+            position: absolute; width: 100%; height: 1px;
+            border-top: 2px dashed rgba(255, 85, 24, 0.6);
+            top: 55%; left: 0; z-index: 1;
+        }
+        .house-icon {
+            position: absolute; width: 24px; height: 24px;
+            background-color: var(--nexus-orange);
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>') no-repeat center;
+            mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>') no-repeat center;
+            transform: translate(-50%, 50%);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .house-icon:hover {
+            transform: translate(-50%, 50%) scale(1.5);
+            background-color: var(--lead-gray); z-index: 10; cursor: pointer;
+        }
+        .chart-footer-text {
+            font-size: 1.1rem; font-weight: 700; color: var(--lead-gray);
+        }
+        @media (max-width: 600px) {
+            .chart-wrapper { height: 300px; padding-left: 40px; }
+            .house-icon { width: 18px; height: 18px; }
+        }
+
+        /* -----------------------------------------------------------
+           05 - COM A NEXUS SUAS CHANCES AUMENTAM
+           ----------------------------------------------------------- */
+        .nexus-stats-section {
+            background-color: #f4f4f4;
+            padding: var(--section-padding);
+            text-align: center;
+            color: #333333;
+        }
+        .nexus-stats-section .section-title { color: #333333; margin-bottom: 2rem; }
+        .nexus-stats-text {
+            font-size: 1.5rem; line-height: 1.6; max-width: 900px; margin: 0 auto; font-weight: 300;
+        }
+        .nexus-stats-text strong { font-weight: 700; font-size: 1.8rem; }
+
+        /* -----------------------------------------------------------
+           06 - SERVIÇOS NEXUS
+           ----------------------------------------------------------- */
+        .nexus-services-section {
+            background-color: #f4f4f4;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        .nexus-services-section .section-title {
+            color: var(--lead-gray);
+            font-size: 2.5rem; margin-bottom: 4rem; font-weight: 700;
+        }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem; justify-content: center;
+        }
+        .service-item { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .service-icon-box {
+            width: 110px; height: 110px; background-color: #ffffff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-icon-box:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .service-icon-box svg { width: 50px; height: 50px; fill: #333333; }
+        .service-item h3 {
+            color: var(--lead-gray); font-size: 1.25rem; font-weight: 700;
+            line-height: 1.4; margin: 0; max-width: 200px;
+        }
+
+        /* -----------------------------------------------------------
+           07 - PLANO DE MARKETING
+           ----------------------------------------------------------- */
+        .marketing-section {
+            background-color: #f4f4f4; padding: 5rem 2rem;
+        }
+        .marketing-section .section-title {
+            color: var(--lead-gray); margin-bottom: 4rem;
+            text-align: center; font-size: 2.5rem; font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .mkt-block {
+            background-color: #fff; border-radius: 20px; padding: 3rem 2rem;
+            margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center; display: flex; flex-direction: column; align-items: center;
+        }
+        .mkt-tag {
+            display: inline-block; background-color: #333333; color: #ffffff;
+            padding: 0.8rem 2rem; border-radius: 50px; font-size: 1.2rem;
+            font-weight: 500; margin-bottom: 2.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .mkt-text {
+            font-size: 1.1rem; color: #666; margin-top: 1.5rem;
+            max-width: 700px; line-height: 1.5;
+        }
+        .mkt-flex-center {
+            display: flex; flex-wrap: wrap; gap: 2rem;
+            justify-content: center; align-items: center; width: 100%;
+        }
+        .mkt-grid-2x2 {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+            width: 100%; max-width: 900px;
+        }
+        .mkt-img-standard {
+            width: 100%; height: 250px; object-fit: cover;
+            border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        /* Placas: Lado a Lado + Arredondado + Cover */
+        .mkt-img-placa {
+            width: 100%; height: 350px; object-fit: cover;
+            border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .mkt-img-wide {
+            max-width: 900px; width: 100%; height: auto;
+            border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid #eee;
+        }
+        .mkt-img-medium { max-width: 500px; width: 100%; height: auto; }
+        .mkt-img-xsmall {
+            max-width: 200px; width: 100%; height: auto;
+            border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease;
+        }
+        .mkt-img-vertical-align {
+            height: 300px; width: auto; max-width: 100%; object-fit: contain;
+            border-radius: 15px; transition: transform 0.3s ease;
+        }
+        .mkt-icon {
+            width: 70px; height: 70px; object-fit: contain; transition: transform 0.3s ease;
+        }
+        .mkt-img-standard:hover, .mkt-img-placa:hover, .mkt-img-vertical-align:hover, .mkt-img-xsmall:hover, .mkt-icon:hover {
+            transform: scale(1.03);
+        }
+        @media (max-width: 768px) {
+            .mkt-grid-2x2 { grid-template-columns: 1fr; }
+            .mkt-img-placa { height: 300px; }
+            .mkt-img-vertical-align { height: auto; max-height: 300px; }
+        }
+
+        /* -----------------------------------------------------------
+           08 - OBJETIVO DO ESTUDO
+           ----------------------------------------------------------- */
+        /* Mantido inline */
+
+        /* -----------------------------------------------------------
+           09 - COMO É FEITO O ESTUDO
+           ----------------------------------------------------------- */
+        .methodology-section {
+            background-color: #f4f4f4; padding: 4rem 2rem; text-align: center;
+        }
+        .methodology-section .section-title {
+            color: var(--lead-gray); font-size: 2.5rem; margin-bottom: 3rem; font-weight: 700;
+        }
+        .methodology-list {
+            display: flex; flex-direction: column; gap: 2.5rem; max-width: 800px; margin: 0 auto;
+        }
+        .methodology-item {
+            display: flex; align-items: center; gap: 2rem; padding: 1rem;
+            border-radius: 12px; transition: background-color 0.3s ease;
+        }
+        .methodology-item:hover { background-color: #e0e0e0; }
+        .methodology-item img { width: 65px; height: auto; flex-shrink: 0; }
+        .methodology-item p {
+            font-size: 1.4rem; margin: 0; font-weight: 400; color: #555555; text-align: left; line-height: 1.3;
+        }
+        @media (max-width: 600px) {
+            .methodology-item { flex-direction: column; text-align: center; gap: 1rem; }
+            .methodology-item p { text-align: center; font-size: 1.2rem; }
+        }
+
+        /* -----------------------------------------------------------
+           10 - VANTAGENS PRECIFICAÇÃO
+           ----------------------------------------------------------- */
+        .advantages-section {
+            background-color: #f4f4f4; padding: var(--section-padding);
+        }
+        .advantages-section .section-title {
+            color: var(--nexus-orange); margin-bottom: 3rem; text-align: center; line-height: 1.2;
+        }
+        .advantages-list {
+            display: flex; flex-direction: column; gap: 1.2rem; max-width: 900px; margin: 0 auto;
+        }
+        .advantage-item { display: flex; align-items: center; gap: 1rem; }
+        .advantage-icon-svg { width: 42px; height: 42px; flex-shrink: 0; fill: #28a745; }
+        .advantage-bar {
+            background-color: #ff5518; color: #ffffff; padding: 1rem 1.5rem;
+            border-radius: 8px; width: 100%; text-align: center;
+            font-size: 1.15rem; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 600px) {
+            .advantage-item { flex-direction: column; gap: 0.5rem; }
+            .advantage-bar { font-size: 1rem; padding: 0.8rem; }
+        }
+
+        /* -----------------------------------------------------------
+           11 - PREÇO X VENDA
+           ----------------------------------------------------------- */
+        .price-relation-section {
+            background-color: #383740; padding: var(--section-padding);
+            text-align: center; color: #ffffff;
+        }
+        .price-relation-section .section-title {
+            color: #ffffff; font-size: 2.5rem; margin-bottom: 1rem;
+        }
+        .price-subtitle {
+            color: var(--nexus-orange); font-size: 1.2rem; max-width: 800px;
+            margin: 0 auto 3rem auto; line-height: 1.5; font-weight: 500;
+        }
+        .chart-container { max-width: 1000px; margin: 0 auto; position: relative; padding: 20px 0; }
+        .boxes-row {
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
+        }
+        .price-box {
+            padding: 10px 15px; border-radius: 10px; font-weight: 700; color: #333;
+            flex: 1; min-width: 80px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        .box-green-3 { background-color: #4ade80; }
+        .box-green-2 { background-color: #86efac; }
+        .box-green-1 { background-color: #bbf7d0; }
+        .box-market { 
+            background-color: #2d2c33; color: var(--nexus-orange);
+            border: 1px solid var(--nexus-orange); flex: 2; font-size: 1rem;
+        }
+        .box-red-1 { background-color: #fecaca; }
+        .box-red-2 { background-color: #fca5a5; }
+        .box-red-3 { background-color: #ef4444; color: white; }
+        .timeline-arrow {
+            width: 100%; height: 2px; background-color: #ffffff; position: relative; margin-bottom: 15px;
+        }
+        .timeline-arrow::after {
+            content: ''; position: absolute; right: 0; top: -4px; width: 0; height: 0; 
+            border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 10px solid #ffffff;
+        }
+        .time-labels-row {
+            display: flex; justify-content: space-between; color: var(--nexus-orange);
+            font-weight: 500; font-size: 0.9rem; margin-bottom: 2rem; padding: 0 10px;
+        }
+        .footer-labels {
+            display: flex; justify-content: space-between; color: #ffffff;
+            font-weight: 700; font-size: 1.1rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;
+        }
+        @media (max-width: 768px) {
+            .boxes-row { gap: 5px; }
+            .price-box { font-size: 0.8rem; padding: 8px 5px; min-width: auto; }
+        }
+
+        /* -----------------------------------------------------------
+           12 - ENCONTRANDO O PREÇO
+           ----------------------------------------------------------- */
+        .factors-section {
+            background-color: #f4f4f4; padding: 5rem 2rem; text-align: center;
+        }
+        .factors-section .section-title {
+            color: var(--lead-gray); font-size: 2.5rem; margin-bottom: 1.5rem;
+            font-weight: 700; line-height: 1.2;
+        }
+        .factors-text {
+            max-width: 800px; margin: 0 auto 4rem auto; font-size: 1.2rem;
+            font-weight: 400; color: #555555;
+        }
+        .factors-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem; justify-content: center; max-width: 1100px; margin: 0 auto;
+        }
+        .factor-item { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .icon-wrapper {
+            width: 120px; height: 120px; background-color: #ffffff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .icon-wrapper:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .icon-wrapper img { width: 60px; height: auto; }
+        .factor-item p {
+            font-size: 1.25rem; font-weight: 700; color: var(--lead-gray); margin: 0; line-height: 1.4;
+        }
+
+        /* -----------------------------------------------------------
+           13 - O ESTUDO ATUAL
+           ----------------------------------------------------------- */
+        .property-details-section { padding: var(--section-padding); }
+        .property-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;
+        }
+        .property-grid .card h4 { color: var(--nexus-orange); font-size: 1.2rem; margin-bottom: 1rem; }
+        .property-grid ul { list-style: none; }
+        .property-grid li { margin-bottom: 0.75rem; }
+        .property-grid .main-data li {
+            display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 0.5rem 0;
+        }
+        .property-grid .main-data li strong { color: var(--medium-gray); }
+        .card.main-data ul { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; }
+        @media (max-width: 480px) { .card.main-data ul { grid-template-columns: 1fr; } }
+        
+        .positive-points li {
+           background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%2328a745" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z"/></svg>') no-repeat left center;
+           padding-left: 30px;
+        }
+        .negative-points li {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23dc3545" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 13h-8v-2h8v2z"/></svg>') no-repeat left center;
+            padding-left: 30px;
+        }
+        .card {
+            background: var(--white); padding: 2rem; border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 1.5rem;
+        }
+        .card.image-card { padding: 0; overflow: hidden; min-height: 250px; }
+        .property-main-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* -----------------------------------------------------------
+           14 - IMÓVEIS SIMILARES (SCROLL LARANJA)
+           ----------------------------------------------------------- */
+        .comparables-section { padding: 4rem 2rem; }
+        
+        .table-container {
+            overflow-x: auto; background-color: #fff; border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 2rem; 
+            padding-bottom: 5px;
+        }
+        
+        /* Custom Scrollbar */
+        .table-container::-webkit-scrollbar { height: 16px; }
+        .table-container::-webkit-scrollbar-track { 
+            background: #f0f0f0; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; 
+        }
+        .table-container::-webkit-scrollbar-thumb { 
+            background-color: var(--nexus-orange); border-radius: 10px; border: 3px solid #f0f0f0; 
+        }
+        .table-container::-webkit-scrollbar-thumb:hover { background-color: #e04a15; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 0; min-width: 900px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: var(--medium-gray); color: var(--white); font-weight: 700; white-space: nowrap; }
+        tbody tr:nth-child(even) { background-color: var(--light-gray); }
+        tbody tr:hover { background-color: var(--medium-gray); color: var(--white); cursor: default; transition: background-color 0.2s ease; }
+        table a { color: var(--nexus-orange); text-decoration: none; font-weight: 500; }
+        tbody tr:hover a { color: var(--nexus-orange); text-decoration: underline; }
+        
+        .averages-grid {
+            display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem;
+            width: 100%; max-width: 500px; margin-left: auto; margin-right: auto;
+        }
+        .average-card {
+            background-color: #fff; border-radius: 15px; padding: 2rem; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .average-card:hover {
+            transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255, 87, 28, 0.15); border-color: var(--nexus-orange);
+        }
+        .average-title { display: block; font-size: 1rem; margin-bottom: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .average-value { display: block; font-size: 2.2rem; font-weight: 800; color: var(--nexus-orange); }
+        @media (max-width: 768px) {
+            .comparables-section { padding: 2rem 1rem; }
+            .average-value { font-size: 1.8rem; }
+            .averages-grid { max-width: 100%; }
+        }
+
+        /* -----------------------------------------------------------
+           15 - RESULTADOS EM (NOVA VERSÃO AJUSTE FINO)
+           ----------------------------------------------------------- */
+        .pricing-section {
+            background-color: var(--light-gray);
+            /* Ajuste: Rodapé reduzido para 150px */
+            padding: 5rem 2rem 150px 2rem;
+        }
+
+        .pricing-section .section-title {
+            font-size: 2.5rem; color: var(--medium-gray); margin-bottom: 5rem;
+            text-align: center; font-weight: 700;
+        }
+
+        .grid-3-cols {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; align-items: stretch;
+        }
+
+        .texts-container { margin-bottom: 3rem; }
+
+        .explanation-text {
+            font-size: 1.15rem; color: #555; line-height: 1.6;
+            text-align: center; padding: 0 1rem; margin: 0;
+        }
+
+        .pricing-card {
+            background-color: #fff; border-radius: 15px; padding: 2.5rem 2rem;
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer; position: relative; overflow: hidden; border: 2px solid transparent;
+            display: block; /* Compacto */
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px); box-shadow: 0 20px 50px rgba(255, 87, 28, 0.15);
+            border-color: var(--nexus-orange);
+        }
+        .pricing-title {
+            font-size: 1.2rem; font-weight: 500; color: #666;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;
+        }
+        .price-container {
+            position: relative; margin-bottom: 2rem; min-height: 4rem;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .real-price {
+            font-size: 2.4rem; font-weight: 800; color: #333;
+            filter: blur(12px); opacity: 0.3; transition: filter 0.4s ease, opacity 0.4s ease, color 0.3s ease;
+            user-select: none;
+        }
+        .click-mask {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95); padding: 0.6rem 1.2rem;
+            border-radius: 30px; font-size: 0.95rem; font-weight: 600;
+            color: var(--nexus-orange); border: 1px solid var(--nexus-orange);
+            pointer-events: none; transition: opacity 0.3s ease; white-space: nowrap;
+        }
+        .click-mask::before { content: '👁 '; margin-right: 5px; }
+        .pricing-card.revealed .real-price { filter: blur(0); opacity: 1; color: var(--nexus-orange); }
+        .pricing-card.revealed .click-mask { opacity: 0; }
+        .price-bar-container {
+            width: 100%; height: 8px; background-color: #eee;
+            border-radius: 4px; overflow: hidden; margin-top: 1rem;
+        }
+        .price-bar-fill { height: 100%; border-radius: 4px; background-color: var(--nexus-orange); }
+        .pricing-card.unlikely .price-bar-fill { width: 100%; opacity: 1; }
+        .pricing-card.market .price-bar-fill { width: 75%; opacity: 0.85; }
+        .pricing-card.competitive .price-bar-fill { width: 50%; opacity: 0.7; }
+        .bar-label {
+            font-size: 0.85rem; color: #999; margin-top: 8px; display: block; text-align: right;
+        }
+
+        .thermo-wrapper {
+            max-width: 800px; margin: 8rem auto 0 auto; text-align: center;
+        }
+        .thermo-bar {
+            width: 100%; height: 24px; border-radius: 12px; background: #e0e0e0;
+            background: linear-gradient(90deg, #ffe0b2 0%, #FF571C 50%, #bf360c 100%);
+            margin-bottom: 12px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); position: relative;
+        }
+        .thermo-labels {
+            display: flex; justify-content: space-between; font-size: 1rem; color: #555; font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .pricing-section { padding: 4rem 1.5rem 100px 1.5rem; }
+            .texts-container { margin-bottom: 2rem; }
+            .thermo-wrapper { margin-top: 5rem; }
+            .explanation-text { margin-bottom: 2rem; }
+        }
+
+        /* -----------------------------------------------------------
+           16 - PRÓXIMOS PASSOS (NOVA VERSÃO AJUSTE FINO)
+           ----------------------------------------------------------- */
+        .proximos-passos-section {
+            background-color: #EAEAEA;
+            padding: 8rem 2rem; /* Mais altura */
+            text-align: center;
+        }
+        .proximos-passos-section .section-title {
+            color: var(--lead-gray); font-size: 2.5rem; margin-bottom: 5rem;
+            letter-spacing: 1px; font-weight: 700;
+        }
+        .timeline-container {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            max-width: 900px; margin: 0 auto; position: relative;
+        }
+        .timeline-line {
+            position: absolute; top: 25px; left: 50px; right: 50px; height: 6px;
+            background-color: var(--nexus-orange); z-index: 0; border-radius: 4px;
+        }
+        .timeline-line::after {
+            content: ''; position: absolute; top: -5px; right: -10px; width: 0; height: 0;
+            border-top: 8px solid transparent; border-bottom: 8px solid transparent;
+            border-left: 14px solid var(--nexus-orange);
+        }
+        .timeline-step {
+            display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1; flex: 1;
+        }
+        .step-marker {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: linear-gradient(145deg, #FF571C, #e04a15);
+            border: 4px solid #EAEAEA; box-shadow: 0 4px 10px rgba(255, 87, 28, 0.3);
+        }
+        .step-marker-highlight {
+            width: 64px; height: 64px; border-radius: 50%;
+            background-color: #FF8B02; display: flex; align-items: center; justify-content: center;
+            border: 4px solid #EAEAEA; box-shadow: 0 0 30px rgba(255, 139, 2, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.4);
+            margin-top: -7px;
+        }
+        .inner-circle {
+            width: 25px; height: 25px; background-color: #fff;
+            border-radius: 50%; opacity: 0.8; filter: blur(4px);
+        }
+        /* Passos Futuros com Cinza Escuro e Texto Chumbo */
+        .future-step .step-marker {
+            background: #666666; background-image: none; box-shadow: none; border-color: #EAEAEA;
+        }
+        .future-step .step-label { color: #363636; font-weight: 500; }
+        
+        .step-label {
+            color: var(--lead-gray); font-size: 1.15rem; margin-top: 1.2rem;
+            font-weight: 500; line-height: 1.3;
+        }
+        .current-step .step-label { color: #FF8B02; font-weight: 700; }
+        @media (max-width: 768px) {
+            .timeline-container {
+                flex-direction: column; align-items: flex-start; gap: 2.5rem; padding-left: 1rem;
+            }
+            .timeline-line {
+                top: 20px; bottom: 0; left: 35px; width: 6px; height: auto; right: auto;
+            }
+            .timeline-line::after { display: none; }
+            .timeline-step { flex-direction: row; gap: 1.5rem; width: 100%; text-align: left; }
+            .step-label { margin-top: 0; text-align: left; br { display: none; } }
+            .step-marker-highlight { margin-top: 0; margin-left: -7px; }
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--medium-gray); color: var(--white);
+            padding: 3rem 2rem; text-align: center;
+        }
+        footer .logo { max-width: 180px; margin-bottom: 1.5rem; }
+        footer p { margin-bottom: 0.5rem; }
+        footer a { color: var(--nexus-orange); text-decoration: none; }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="container">
+            <img src="{{6.imagem_logo_nexus}}" alt="Logo Nexus" class="logo">
+            <h1 class="hero-title">Olá, {{1.proprietario_nome}}</h1>
+            <p class="hero-subtitle">Montamos um estudo de mercado para o seu imóvel de endereço:</p>
+            <p class="hero-address">{{1.imovel_endereco}}</p>
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="about-nexus-section">
+            <div class="container">
+                <h2 class="section-title">Sobre a Nexus</h2>
+                <div class="about-list">
+                    <div class="about-item">
+                        <div class="about-icon-box">
+                            <img src="{{6.imagem_sobre_a_nexus_01}}" alt="Excelência">
+                        </div>
+                        <p>Serviço de excelência prestado ao proprietário do imóvel</p>
+                    </div>
+                    <div class="about-item">
+                        <div class="about-icon-box">
+                            <img src="{{6.imagem_sobre_a_nexus_02}}" alt="Consultoria">
+                        </div>
+                        <p>Consultoria especializada em todas as etapas do processo de venda</p>
+                    </div>
+                    <div class="about-item">
+                        <div class="about-icon-box">
+                            <img src="{{6.imagem_sobre_a_nexus_03}}" alt="Foco">
+                        </div>
+                        <p>Foco na venda do imóvel</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="realtor-section">
+            <div class="container">
+                <h2 class="section-title">{{1.titulo_sessao_corretor}}</h2>
+                <div class="realtor-card">
+                    <div class="realtor-image-container">
+                        <img src="https://files.jestor.com/efa883b91d7c4893be171c4bcd016a83/{{1.corretor_imagem}}" alt="Corretor(a) {{1.corretor_nome}}">
+                    </div>
+                    <div class="realtor-info">
+                        <h3>{{1.corretor_nome}}</h3>
+                        <div class="creci-tag">CRECI: {{1.corretor_creci}}</div>
+                        <div class="contact-info">
+                            <p><strong>Telefone:</strong> <a href="https://wa.me/55{{1.corretor_telefone_sem_hifen_sem_espaco}}" target="_blank">{{1.corretor_telefone_para_mostrar_na_pagina}}</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:{{1.corretor_email}}" target="_blank">{{1.corretor_email}}</a></p>
+                        </div>
+                        <div class="realtor-details">
+                            <div>
+                                <h4>Formação</h4>
+                                <ul>
+                                    <li>{{1.corretor_formacao_1}}</li>
+                                    <li>{{1.corretor_formacao_2}}</li>
+                                    <li>{{1.corretor_formacao_3}}</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Experiência</h4>
+                                <ul>
+                                    <li>{{1.corretor_experiencia_1}}</li>
+                                    <li>{{1.corretor_experiencia_2}}</li>
+                                    <li>{{1.corretor_experiencia_3}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sold-examples-section">
+            <div class="container">
+                <h2 class="section-title">Exemplos de Imóveis já vendidos através da Nexus</h2>
+                <p class="sold-examples-text">
+                    Assim como você, muitos proprietários confiaram em nosso método e alcançaram o resultado que desejavam na venda de seus imóveis.<br>
+                    Abaixo estão alguns exemplos.
+                </p>
+                <div class="sold-grid">
+                    <img src="{{6.imagem_imovel_vendido_nexus_01}}" alt="Imóvel Vendido 01">
+                    <img src="{{6.imagem_imovel_vendido_nexus_02}}" alt="Imóvel Vendido 02">
+                    <img src="{{6.imagem_imovel_vendido_nexus_03}}" alt="Imóvel Vendido 03">
+                    <img src="{{6.imagem_imovel_vendido_nexus_04}}" alt="Imóvel Vendido 04">
+                    <img src="{{6.imagem_imovel_vendido_nexus_05}}" alt="Imóvel Vendido 05">
+                    <img src="{{6.imagem_imovel_vendido_nexus_06}}" alt="Imóvel Vendido 06">
+                </div>
+            </div>
+        </section>
+
+        <section class="tempo-x-preco-section">
+            <div class="container">
+                <h2 class="section-title">Tempo x Preço Venda</h2>
+                <div class="chart-wrapper">
+                    <span class="axis-label y-label">Preço</span>
+                    <div class="chart-area">
+                        <span class="axis-label x-label">Tempo</span>
+                        <div class="dashed-line"></div>
+                        <div class="house-icon" style="left: 5%; bottom: 15%;"></div>
+                        <div class="house-icon" style="left: 12%; bottom: 25%;"></div>
+                        <div class="house-icon" style="left: 18%; bottom: 10%;"></div>
+                        <div class="house-icon" style="left: 22%; bottom: 30%;"></div>
+                        <div class="house-icon" style="left: 28%; bottom: 18%;"></div>
+                        <div class="house-icon" style="left: 35%; bottom: 22%;"></div>
+                        <div class="house-icon" style="left: 42%; bottom: 28%;"></div>
+                        <div class="house-icon" style="left: 48%; bottom: 35%;"></div>
+                        <div class="house-icon" style="left: 55%; bottom: 20%;"></div>
+                        <div class="house-icon" style="left: 30%; bottom: 45%;"></div>
+                        <div class="house-icon" style="left: 38%; bottom: 55%;"></div>
+                        <div class="house-icon" style="left: 45%; bottom: 48%;"></div>
+                        <div class="house-icon" style="left: 50%; bottom: 60%;"></div>
+                        <div class="house-icon" style="left: 58%; bottom: 52%;"></div>
+                        <div class="house-icon" style="left: 62%; bottom: 65%;"></div>
+                        <div class="house-icon" style="left: 68%; bottom: 58%;"></div>
+                        <div class="house-icon" style="left: 70%; bottom: 75%;"></div>
+                        <div class="house-icon" style="left: 75%; bottom: 68%;"></div>
+                        <div class="house-icon" style="left: 80%; bottom: 82%;"></div>
+                        <div class="house-icon" style="left: 85%; bottom: 70%;"></div>
+                        <div class="house-icon" style="left: 88%; bottom: 62%;"></div>
+                        <div class="house-icon" style="left: 92%; bottom: 88%;"></div>
+                    </div>
+                </div>
+                <p class="chart-footer-text">
+                    O tempo médio de vendas no Brasil é de 16 meses (Abrainc).
+                </p>
+            </div>
+        </section>
+
+        <section class="nexus-stats-section">
+            <div class="container">
+                <h2 class="section-title">Com a Nexus suas chances aumentam</h2>
+                <p class="nexus-stats-text">
+                    Como focamos no sucesso do cliente, nosso tempo médio de venda é <strong>3X menor</strong> e nossa taxa de vendas é <strong>4x maior</strong> do que os indicadores da concorrência.
+                </p>
+            </div>
+        </section>
+
+        <section class="nexus-services-section">
+            <div class="container">
+                <h2 class="section-title">Serviços Nexus</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                        </div>
+                        <h3>Estudo de Mercado</h3>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 9c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1v4h2v-4h1l5 3V6L8 9H4zm15 3l-4 4h4v-4zm0-6l-4 4h4V6z"/></svg>
+                        </div>
+                        <h3>Plano de Marketing (MKT)</h3>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.67-3.3-1-4.5-1C5.33 13 1 14.08 1 16.25V19h22v-2.75c0-2.17-4.33-3.25-6.5-3.25zm-4 4.5h-10v-1.25c0-.54 2.08-1.25 3.5-1.25s3.5.71 3.5 1.25V17.5zm7.5 0h-10v-1.25c0-.54 2.08-1.25 3.5-1.25s3.5.71 3.5 1.25V17.5zM7.5 12c1.93 0 3.5-1.57 3.5-3.5S9.43 5 7.5 5 4 6.57 4 8.5 5.57 12 7.5 12zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 5.5c1.93 0 3.5-1.57 3.5-3.5S18.43 5 16.5 5 13 6.57 13 8.5s1.57 3.5 3.5 3.5zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg>
+                        </div>
+                        <h3>Negociação / Contrato / Documentação</h3>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                        </div>
+                        <h3>Pós-Venda</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="marketing-section">
+            <div class="container">
+                <h2 class="section-title">O que nosso Plano de MKT te oferece</h2>
+
+                <div class="mkt-block">
+                    <div class="mkt-tag">Fotos Profissionais e Vídeos</div>
+                    <div class="mkt-grid-2x2">
+                        <img src="{{6.imagem_plano_mkt_nexus_01}}" alt="Foto Sala" class="mkt-img-standard">
+                        <img src="{{6.imagem_plano_mkt_nexus_02}}" alt="Foto Decorada" class="mkt-img-standard">
+                        <img src="{{6.imagem_plano_mkt_nexus_03}}" alt="Foto Fachada" class="mkt-img-standard">
+                        <img src="{{6.imagem_plano_mkt_nexus_04}}" alt="Foto Interior" class="mkt-img-standard">
+                    </div>
+                    <p class="mkt-text">Produzimos material visual de alta qualidade para valorizar cada detalhe do seu imóvel.</p>
+                </div>
+
+                <div class="mkt-block">
+                    <div class="mkt-tag">Portal da Agência (Nexus)</div>
+                    <div class="mkt-flex-center">
+                        <img src="{{6.imagem_plano_mkt_nexus_05}}" alt="Portal Nexus Desktop" class="mkt-img-wide">
+                    </div>
+                </div>
+
+                <div class="mkt-block">
+                    <div class="mkt-tag">Portais Imobiliários</div>
+                    <div class="mkt-flex-center">
+                        <img src="{{6.imagem_plano_mkt_nexus_06}}" alt="Logos Portais Parceiros" class="mkt-img-medium">
+                    </div>
+                    <p class="mkt-text">Seu imóvel anunciado nos maiores portais do país para máxima visibilidade.</p>
+                </div>
+
+                <div class="mkt-block">
+                    <div class="mkt-tag">Redes Sociais</div>
+                    <div class="mkt-flex-center" style="gap: 3rem;">
+                        <img src="{{6.imagem_plano_mkt_nexus_07}}" alt="Instagram" class="mkt-icon">
+                        <img src="{{6.imagem_plano_mkt_nexus_08}}" alt="Facebook" class="mkt-icon">
+                        <img src="{{6.imagem_plano_mkt_nexus_09}}" alt="Google" class="mkt-icon">
+                        <img src="{{6.imagem_plano_mkt_nexus_10}}" alt="WhatsApp" class="mkt-icon">
+                    </div>
+                    <p class="mkt-text">Presença forte onde seu público está, facilitando o contato direto.</p>
+                </div>
+
+                <div class="mkt-block">
+                    <div class="mkt-tag">Anúncios Patrocinados</div>
+                    <div class="mkt-flex-center">
+                        <img src="{{6.imagem_plano_mkt_nexus_12}}" alt="Feed com Anúncios" class="mkt-img-wide">
+                    </div>
+                    <p class="mkt-text">Investimento em tráfego pago para alcançar compradores ativos.</p>
+                </div>
+
+                <div class="mkt-block">
+                    <div class="mkt-tag">Listas de Transmissão</div>
+                    <div class="mkt-flex-center" style="gap: 3rem;">
+                        <img src="{{6.imagem_plano_mkt_nexus_10}}" alt="WhatsApp Ícone" class="mkt-icon" style="width: 90px; height: 90px;">
+                        <img src="{{6.imagem_plano_mkt_nexus_18}}" alt="Lista de Transmissão" class="mkt-img-vertical-align">
+                    </div>
+                    <p class="mkt-text">Divulgação ágil para nossa base de clientes e corretores.</p>
+                </div>
+
+                <div class="mkt-block">
+                    <div class="mkt-tag">Placas e Faixas</div>
+                    <div class="mkt-grid-2x2">
+                        <img src="{{6.imagem_plano_mkt_nexus_13}}" alt="Placa Frente" class="mkt-img-placa">
+                        <img src="{{6.imagem_plano_mkt_nexus_14}}" alt="Placa Jardim" class="mkt-img-placa">
+                    </div>
+                </div>
+
+                <div class="mkt-block">
+                    <div class="mkt-tag">Materiais Impressos</div>
+                    <div class="mkt-flex-center">
+                        <img src="{{6.imagem_plano_mkt_nexus_17}}" alt="Cartas e Panfletos" class="mkt-img-xsmall">
+                    </div>
+                </div>
+
+                <div class="mkt-block">
+                    <div class="mkt-tag">Parceria Imobiliária</div>
+                    
+                    <div class="mkt-flex-center" style="gap: 2rem; align-items: center;">
+                        <img src="{{6.imagem_plano_mkt_nexus_11}}" alt="Selo Parceria Garantida" class="mkt-img-vertical-align">
+                        <img src="{{6.imagem_plano_mkt_nexus_15}}" alt="Instagram Story" class="mkt-img-vertical-align">
+                        <img src="{{6.imagem_plano_mkt_nexus_16}}" alt="Instagram Post" class="mkt-img-vertical-align">
+                    </div>
+                    <p class="mkt-text">Divulgação máxima em rede para acelerar a venda.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: #e0e0e0; color: #333333; padding: 4rem 2rem; text-align: center;">
+            <div class="container">
+                <h2 class="section-title" style="color: #333333; margin-bottom: 1.5rem;">Objetivo do Estudo</h2>
+                <div style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    <p style="margin-bottom: 1rem;">Compreender como seu imóvel se posiciona no mercado é essencial para garantir uma venda segura e eficiente.</p>
+                    <p style="margin-bottom: 1rem;">Por isso, elaboramos um estudo personalizado, considerando as características do seu imóvel e comparando com ofertas semelhantes na região.</p>
+                    <p>O propósito deste levantamento é definir o valor de venda mais adequado — aquele que coloca seu imóvel em evidência, evitando que ele apenas sirva de vitrine para destacar os concorrentes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="methodology-section">
+            <div class="container">
+                <h2 class="section-title">Como é feito o Estudo de Mercado?</h2>
+                <div class="methodology-list">
+                    <div class="methodology-item">
+                        <img src="{{6.imagem_como_e_feito_estudo_01}}" alt="Ícone Análise">
+                        <p>Análise mercadológica</p>
+                    </div>
+                    <div class="methodology-item">
+                        <img src="{{6.imagem_como_e_feito_estudo_02}}" alt="Ícone Amostras">
+                        <p>Amostras com características semelhantes</p>
+                    </div>
+                    <div class="methodology-item">
+                        <img src="{{6.imagem_como_e_feito_estudo_03}}" alt="Ícone Concorrentes">
+                        <p>Imóveis concorrentes na mesma faixa de preço</p>
+                    </div>
+                    <div class="methodology-item">
+                        <img src="{{6.imagem_como_e_feito_estudo_04}}" alt="Ícone Ajuste">
+                        <p>Fatores de ajuste de preço</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages-section">
+            <div class="container">
+                <h2 class="section-title">Vantagens da Precificação<br>Correta</h2>
+                <div class="advantages-list">
+                    <div class="advantage-item">
+                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
+                        <div class="advantage-bar">Propostas de valor mais vantajosas.</div>
+                    </div>
+                    <div class="advantage-item">
+                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
+                        <div class="advantage-bar">Maior interesse de compradores e, consequentemente, mais visitas.</div>
+                    </div>
+                    <div class="advantage-item">
+                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
+                        <div class="advantage-bar">Negociação concluída em menos tempo.</div>
+                    </div>
+                    <div class="advantage-item">
+                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
+                        <div class="advantage-bar">Corretores mais engajados em apresentar seu imóvel.</div>
+                    </div>
+                    <div class="advantage-item">
+                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
+                        <div class="advantage-bar">Redução do risco de desvalorização.</div>
+                    </div>
+                    <div class="advantage-item">
+                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
+                        <div class="advantage-bar">Exclusividade na representação do seu imóvel.</div>
+                    </div>
+                    <div class="advantage-item">
+                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
+                        <div class="advantage-bar">Menos transtornos ao longo do processo.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="price-relation-section">
+            <div class="container">
+                <h2 class="section-title">Relação Preço x Venda</h2>
+                <p class="price-subtitle">Quanto mais adequado o preço for ao mercado, menor será o tempo de venda</p>
+                <div class="chart-container">
+                    <div class="boxes-row">
+                        <div class="price-box box-green-3">-30%</div>
+                        <div class="price-box box-green-2">-20%</div>
+                        <div class="price-box box-green-1">-10%</div>
+                        <div class="price-box box-market">Preço de mercado</div>
+                        <div class="price-box box-red-1">+10%</div>
+                        <div class="price-box box-red-2">+20%</div>
+                        <div class="price-box box-red-3">+30%</div>
+                    </div>
+                    <div class="timeline-arrow"></div>
+                    <div class="time-labels-row">
+                        <div class="time-label">ex.: Semanas/Meses</div>
+                        <div class="time-label">ex.: Meses/Anos</div>
+                        <div class="time-label">ex.: Anos/Décadas</div>
+                    </div>
+                    <div class="footer-labels">
+                        <span>Menor tempo de venda</span>
+                        <span>Maior tempo de venda</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="factors-section">
+            <div class="container">
+                <h2 class="section-title">Encontrando o Preço de Venda Adequado</h2>
+                <p class="factors-text">
+                    É essencial ajustar o Preço de Venda de acordo com os seguintes fatores:
+                </p>
+                <div class="factors-grid">
+                    <div class="factor-item">
+                        <div class="icon-wrapper">
+                            <img src="{{6.imagem_encontrando_o_preco_adequado_01}}" alt="Localização">
+                        </div>
+                        <p>Localização do<br>Imóvel</p>
+                    </div>
+                    <div class="factor-item">
+                        <div class="icon-wrapper">
+                            <img src="{{6.imagem_encontrando_o_preco_adequado_02}}" alt="Demanda e Mercado">
+                        </div>
+                        <p>Demanda /<br>Mercado</p>
+                    </div>
+                    <div class="factor-item">
+                        <div class="icon-wrapper">
+                            <img src="{{6.imagem_encontrando_o_preco_adequado_03}}" alt="Posição Solar">
+                        </div>
+                        <p>Posição<br>Solar</p>
+                    </div>
+                    <div class="factor-item">
+                        <div class="icon-wrapper">
+                            <img src="{{6.imagem_encontrando_o_preco_adequado_04}}" alt="Conservação e Padrão">
+                        </div>
+                        <p>Conservação / Padrão<br>de Acabamento</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="property-details-section">
+            <div class="container">
+                <h2 class="section-title">O Estudo Atual</h2>
+                <h3 style="padding-top: 1rem; padding-bottom: 1rem; text-align: center;">Dados Principais do seu Imóvel</h3>
+                <div class="property-grid">
+                    <div class="card image-card">
+                        <img src="https://files.jestor.com/efa883b91d7c4893be171c4bcd016a83/{{1.imovel_imagem}}" alt="Fachada do Imóvel" class="property-main-img">
+                    </div>
+                    <div class="card">
+                        <h4>O Imóvel</h4>
+                        <ul>
+                            <li><span>Localização:</span> <strong>{{1.imovel_endereco}}</strong></li>
+                            <li><span>Área:</span> <strong>{{1.imovel_area}} m²</strong></li>
+                            <li><span>Tipo:</span> <strong>{{1.imovel_tipo}}</strong></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                         <h4>Composição</h4>
+                         <ul>
+                            <li><span>Dormitórios:</span> <strong>{{1.imovel_numero_quartos}}</strong></li>
+                            <li><span>Suítes:</span> <strong>{{1.imovel_numero_suites}}</strong></li>
+                            <li><span>Banheiros:</span> <strong>{{1.imovel_numero_banheiros}}</strong></li>
+                            <li><span>Vagas:</span> <strong>{{1.imovel_numero_vagas}}</strong></li>
+                         </ul>
+                    </div>
+                    <div class="card">
+                        <h4>Fatores de Correção</h4>
+                        <ul>
+                            <li><span>Demanda na Região:</span> <strong>{{1.imovel_fc_demanda_na_regiao}}</strong></li>
+                            <li><span>Posição Solar:</span> <strong>{{1.imovel_fc_posicao_solar}}</strong></li>
+                            <li><span>Condição:</span> <strong>{{1.imovel_fc_grau_de_conservacao}}</strong></li>
+                            <li><span>Mobília:</span> <strong>{{1.imovel_fc_mobilia}}</strong></li>
+                        </ul>
+                    </div>
+                    <div class="card positive-points">
+                        <h4 style="color: #28a745;">Pontos Favoráveis</h4>
+                        <ul>
+                            <li style="display: block;">{{1.imovel_ponto_pos_01}}</li>
+                            <li style="display: block;">{{1.imovel_ponto_pos_02}}</li>
+                            <li style="display: block;">{{1.imovel_ponto_pos_03}}</li>
+                        </ul>
+                    </div>
+                    <div class="card negative-points">
+                        <h4 style="color: #dc3545;">Pontos Desfavoráveis</h4>
+                        <ul>
+                            <li style="display: block;">{{1.imovel_ponto_neg_01}}</li>
+                            <li style="display: block;">{{1.imovel_ponto_neg_02}}</li>
+                            <li style="display: block;">{{1.imovel_ponto_neg_03}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparables-section">
+            <div class="container">
+                <h2 class="section-title">Imóveis Similares na Região</h2>
+                <p class="text-center">Analisamos imóveis concorrentes para entender o posicionamento de mercado.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Imóvel</th>
+                                <th>Área (m²)</th>
+                                <th>Dorm.</th>
+                                <th>Suítes</th>
+                                <th>Ban.</th>
+                                <th>Vagas</th>
+                                <th>Preço (R$)</th>
+                                <th>Preço / m² (R$)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="{{1.amostra_01_link}}" target="_blank">{{1.amostra_01_titulo}}</a></td>
+                                <td>{{1.amostra_01_area}}</td>
+                                <td>{{1.amostra_01_nqua}}</td>
+                                <td>{{1.amostra_01_nsui}}</td>
+                                <td>{{1.amostra_01_nban}}</td>
+                                <td>{{1.amostra_01_nvag}}</td>
+                                <td>R$ {{6.amostra_01_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_01_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{1.amostra_02_link}}" target="_blank">{{1.amostra_02_titulo}}</a></td>
+                                <td>{{1.amostra_02_area}}</td>
+                                <td>{{1.amostra_02_nqua}}</td>
+                                <td>{{1.amostra_02_nsui}}</td>
+                                <td>{{1.amostra_02_nban}}</td>
+                                <td>{{1.amostra_02_nvag}}</td>
+                                <td>R$ {{6.amostra_02_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_02_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{1.amostra_03_link}}" target="_blank">{{1.amostra_03_titulo}}</a></td>
+                                <td>{{1.amostra_03_area}}</td>
+                                <td>{{1.amostra_03_nqua}}</td>
+                                <td>{{1.amostra_03_nsui}}</td>
+                                <td>{{1.amostra_03_nban}}</td>
+                                <td>{{1.amostra_03_nvag}}</td>
+                                <td>R$ {{6.amostra_03_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_03_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{1.amostra_04_link}}" target="_blank">{{1.amostra_04_titulo}}</a></td>
+                                <td>{{1.amostra_04_area}}</td>
+                                <td>{{1.amostra_04_nqua}}</td>
+                                <td>{{1.amostra_04_nsui}}</td>
+                                <td>{{1.amostra_04_nban}}</td>
+                                <td>{{1.amostra_04_nvag}}</td>
+                                <td>R$ {{6.amostra_04_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_04_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{1.amostra_05_link}}" target="_blank">{{1.amostra_05_titulo}}</a></td>
+                                <td>{{1.amostra_05_area}}</td>
+                                <td>{{1.amostra_05_nqua}}</td>
+                                <td>{{1.amostra_05_nsui}}</td>
+                                <td>{{1.amostra_05_nban}}</td>
+                                <td>{{1.amostra_05_nvag}}</td>
+                                <td>R$ {{6.amostra_05_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_05_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{1.amostra_06_link}}" target="_blank">{{1.amostra_06_titulo}}</a></td>
+                                <td>{{1.amostra_06_area}}</td>
+                                <td>{{1.amostra_06_nqua}}</td>
+                                <td>{{1.amostra_06_nsui}}</td>
+                                <td>{{1.amostra_06_nban}}</td>
+                                <td>{{1.amostra_06_nvag}}</td>
+                                <td>R$ {{6.amostra_06_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_06_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{1.amostra_07_link}}" target="_blank">{{1.amostra_07_titulo}}</a></td>
+                                <td>{{1.amostra_07_area}}</td>
+                                <td>{{1.amostra_07_nqua}}</td>
+                                <td>{{1.amostra_07_nsui}}</td>
+                                <td>{{1.amostra_07_nban}}</td>
+                                <td>{{1.amostra_07_nvag}}</td>
+                                <td>R$ {{6.amostra_07_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_07_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{1.amostra_08_link}}" target="_blank">{{1.amostra_08_titulo}}</a></td>
+                                <td>{{1.amostra_08_area}}</td>
+                                <td>{{1.amostra_08_nqua}}</td>
+                                <td>{{1.amostra_08_nsui}}</td>
+                                <td>{{1.amostra_08_nban}}</td>
+                                <td>{{1.amostra_08_nvag}}</td>
+                                <td>R$ {{6.amostra_08_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_08_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{1.amostra_09_link}}" target="_blank">{{1.amostra_09_titulo}}</a></td>
+                                <td>{{1.amostra_09_area}}</td>
+                                <td>{{1.amostra_09_nqua}}</td>
+                                <td>{{1.amostra_09_nsui}}</td>
+                                <td>{{1.amostra_09_nban}}</td>
+                                <td>{{1.amostra_09_nvag}}</td>
+                                <td>R$ {{6.amostra_09_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_09_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{1.amostra_10_link}}" target="_blank">{{1.amostra_10_titulo}}</a></td>
+                                <td>{{1.amostra_10_area}}</td>
+                                <td>{{1.amostra_10_nqua}}</td>
+                                <td>{{1.amostra_10_nsui}}</td>
+                                <td>{{1.amostra_10_nban}}</td>
+                                <td>{{1.amostra_10_nvag}}</td>
+                                <td>R$ {{6.amostra_10_preco_formatado}}</td>
+                                <td>R$ {{6.amostra_10_preco_por_metro_quad_formatado}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="averages-grid">
+                    <div class="average-card">
+                        <span>Média de Preço (Total)</span>
+                        <strong>R$ {{6.amostras_média_preco_total_formatado}}</strong>
+                    </div>
+                    <div class="average-card">
+                        <span>Média de Preço (m²)</span>
+                        <strong>R$ {{6.amostras_média_preco_por_m2_formatado}}</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <div class="container">
+                <h2 class="section-title">Resultados do Estudo de Precificação</h2>
+                
+                <div class="grid-3-cols texts-container">
+                    <p class="explanation-text">
+                        Valores muito acima da média de mercado geram resistência, diminuindo drasticamente o número de visitas e propostas.
+                    </p>
+                    <p class="explanation-text">
+                        O valor justo equilibra a expectativa do proprietário com a realidade do mercado, atraindo compradores qualificados.
+                    </p>
+                    <p class="explanation-text">
+                        Uma estratégia agressiva para quem tem urgência. Destaca o imóvel frente à concorrência e acelera o fechamento.
+                    </p>
+                </div>
+
+                <div class="grid-3-cols">
+                    
+                    <div class="pricing-card unlikely" onclick="togglePrice(this)">
+                        <div class="pricing-title">Preço Improvável</div>
+                        <div class="price-container">
+                            <span class="click-mask">Clique para ver</span>
+                            <strong class="real-price">R$ {{6.valor_improvavel_formatado}}</strong>
+                        </div>
+                        <div class="price-bar-container">
+                            <div class="price-bar-fill"></div>
+                        </div>
+                        <span class="bar-label">Alta resistência</span>
+                    </div>
+
+                    <div class="pricing-card market" onclick="togglePrice(this)">
+                        <div class="pricing-title">Preço de Mercado</div>
+                        <div class="price-container">
+                            <span class="click-mask">Clique para ver</span>
+                            <strong class="real-price">R$ {{6.valor_mercado_formatado}}</strong>
+                        </div>
+                        <div class="price-bar-container">
+                            <div class="price-bar-fill"></div>
+                        </div>
+                        <span class="bar-label">Venda Padrão</span>
+                    </div>
+
+                    <div class="pricing-card competitive" onclick="togglePrice(this)">
+                        <div class="pricing-title">Preço Competitivo</div>
+                        <div class="price-container">
+                            <span class="click-mask">Clique para ver</span>
+                            <strong class="real-price">R$ {{6.valor_competitivo_formatado}}</strong>
+                        </div>
+                        <div class="price-bar-container">
+                            <div class="price-bar-fill"></div>
+                        </div>
+                        <span class="bar-label">Venda Rápida</span>
+                    </div>
+
+                </div>
+
+                <div class="thermo-wrapper">
+                    <div class="thermo-labels" style="margin-bottom: 8px;">
+                        <span>Menor Probabilidade</span>
+                        <span>Maior Probabilidade</span>
+                    </div>
+                    <div class="thermo-bar"></div>
+                    <div class="thermo-labels">
+                        <span style="font-size: 0.85rem; opacity: 0.8;">Preço Alto</span>
+                        <span style="font-size: 0.85rem; opacity: 0.8;">Preço Atrativo</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="proximos-passos-section">
+            <div class="container">
+                <h2 class="section-title">Próximos Passos</h2>
+                
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+
+                    <div class="timeline-step">
+                        <div class="step-marker"></div>
+                        <p class="step-label">Visita Inicial</p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-marker"></div>
+                        <p class="step-label">Estudo de<br>Mercado</p>
+                    </div>
+
+                    <div class="timeline-step current-step">
+                        <div class="step-marker-highlight">
+                            <div class="inner-circle"></div>
+                        </div>
+                        <p class="step-label">Contrato</p>
+                    </div>
+
+                    <div class="timeline-step future-step">
+                        <div class="step-marker"></div>
+                        <p class="step-label">Plano de<br>Marketing</p>
+                    </div>
+
+                    <div class="timeline-step future-step">
+                        <div class="step-marker"></div>
+                        <p class="step-label">Venda</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <img src="{{6.imagem_logo_nexus}}" alt="Logo Nexus" class="logo">
+            <p><strong>Nexus Propriedades</strong></p>
+            <p>Este é um estudo de mercado preliminar. Para mais informações, entre em contato.</p>
+            <p>
+                <strong>{{1.corretor_nome}}</strong> |
+                <a href="https://wa.me/55{{1.corretor_telefone_sem_hifen_sem_espaco}}" target="_blank">{{1.corretor_telefone_para_mostrar_na_pagina}}</a> | 
+                <a href="mailto:{{1.corretor_email}}">{{1.corretor_email}}</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function togglePrice(element) {
+            element.classList.toggle('revealed');
+        }
+    </script>
+
+</body>
+</html>
