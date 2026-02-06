@@ -113,7 +113,10 @@
         .about-nexus-section {
             background-color: var(--bg-alt); padding: var(--section-padding);
         }
-        .about-nexus-section .section-title { margin-bottom: 4rem; letter-spacing: 1px; }
+        .about-nexus-section .section-title { 
+    color: var(--nexus-orange-1); /* Mudado para Laranja */
+    margin-bottom: 4rem; letter-spacing: 1px; 
+        }
         .about-list { display: flex; flex-direction: column; gap: 2rem; }
         .about-item {
             display: flex; align-items: center; gap: 2rem;
@@ -330,6 +333,10 @@
             line-height: 1.3; margin: 0; max-width: 220px;
         }
 
+        .nexus-services-section .section-title {
+    color: var(--nexus-orange-1); /* Mudado para Laranja */
+    font-size: 2.5rem; margin-bottom: 4rem; font-weight: 700;
+        }
         /* --- 07 - PLANO DE MARKETING --- */
         .marketing-section { background-color: var(--bg-alt); padding: var(--section-padding); }
         .marketing-section .section-title { letter-spacing: 1px; margin-bottom: 4rem; }
@@ -343,6 +350,21 @@
             padding: 0.8rem 2.5rem; border-radius: 50px; font-size: 1.3rem;
             font-weight: 600; margin-bottom: 2.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
+/* ... logo após .mkt-tag { ... } ... */
+
+        /* EFEITO HOVER PEDIDO: Fundo Laranja e Texto Escuro ao passar o mouse no bloco */
+        .mkt-block:hover .mkt-tag {
+            background-color: var(--nexus-orange-1);
+            color: var(--nexus-black);
+            transition: all 0.3s ease;
+        }
+        
+        /* Opcional: Adiciona uma transição suave no estado normal também */
+        .mkt-tag {
+            /* ... mantenha as propriedades anteriores ... */
+            transition: all 0.3s ease;
+        }
+
         .mkt-text {
             font-size: 1.25rem; color: #444; margin-top: 1.5rem; max-width: 750px; line-height: 1.6;
         }
@@ -388,13 +410,23 @@
 
         /* --- 08 - OBJETIVO DO ESTUDO --- */
         .objective-section {
-            background-color: var(--bg-light); color: var(--nexus-black); padding: 5rem 2rem; text-align: center;
+            background-color: var(--bg-light); color: var(--nexus-black); padding:         5rem 2rem; text-align: center;
+        }
+        /* Adicione ou altere o h2 aqui */
+        .objective-section .section-title {
+            color: var(--nexus-orange-1); /* Mudado para Laranja */
+            margin-bottom: 1.5rem;
         }
         .objective-content { max-width: 850px; margin: 0 auto; font-size: 1.3rem; line-height: 1.7; }
 
         /* --- 09 - COMO É FEITO O ESTUDO --- */
         .methodology-section {
             background-color: var(--bg-alt); padding: var(--section-padding); text-align: center;
+        }
+
+        .methodology-section .section-title {
+    color: var(--nexus-orange-1); /* Mudado para Laranja */
+    font-size: 2.5rem; margin-bottom: 3rem; font-weight: 700;
         }
         .methodology-list { display: flex; flex-direction: column; gap: 2.5rem; max-width: 850px; margin: 0 auto; }
         .methodology-item {
@@ -410,15 +442,20 @@
         }
 
         /* --- 10 - VANTAGENS PRECIFICAÇÃO --- */
-        .advantages-section { background-color: var(--bg-light); padding: var(--section-padding); }
-        .advantages-section .section-title { color: var(--nexus-orange-1); }
-        .advantages-list { display: flex; flex-direction: column; gap: 1.5rem; max-width: 950px; margin: 0 auto; }
-        .advantage-item { display: flex; align-items: center; gap: 1.5rem; }
-        .advantage-icon-svg { width: 45px; height: 45px; flex-shrink: 0; fill: #28a745; }
+        /* ... dentro de 10 - VANTAGENS PRECIFICAÇÃO ... */
+
+        .advantages-section .section-title {
+            color: var(--nexus-black); /* Título agora em Preto */
+            margin-bottom: 3rem; text-align: center; line-height: 1.2;
+        }
+
         .advantage-bar {
-            background-color: var(--nexus-orange-1); color: #ffffff; padding: 1.2rem 2rem;
+            background-color: #ffffff; /* Fundo Branco */
+            color: var(--nexus-black); /* Texto Preto */
+            border: 2px solid var(--nexus-orange-1); /* Borda Laranja para manter a marca */
+            padding: 1.2rem 2rem;
             border-radius: 10px; width: 100%; text-align: center;
-            font-size: 1.3rem; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-size: 1.3rem; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
         @media (max-width: 600px) {
             .advantage-item { flex-direction: column; gap: 0.5rem; }
@@ -490,6 +527,12 @@
         /* --- 12 - ENCONTRANDO O PREÇO --- */
         .factors-section {
             background-color: var(--bg-light); padding: var(--section-padding); text-align: center;
+        }
+
+        .factors-section .section-title {
+    color: var(--nexus-orange-1); /* Mudado para Laranja */
+    font-size: 2.5rem; margin-bottom: 1.5rem;
+    font-weight: 700; line-height: 1.2;
         }
         .factors-text {
             max-width: 850px; margin: 0 auto 4rem auto; font-size: 1.4rem; font-weight: 400; color: #444;
