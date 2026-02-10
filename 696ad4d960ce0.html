@@ -86,8 +86,12 @@
             text-align: center;
             border-bottom: 1px solid #ddd;
         }
+        /* LOGO AUMENTADO (Pedido Luiz) */
         .hero-section .logo {
-            max-width: 220px; height: auto; margin-bottom: 3rem; display: inline-block;
+            max-width: 400px; /* Aumentado de 220px para 400px */
+            height: auto; 
+            margin-bottom: 3rem; 
+            display: inline-block;
         }
         .hero-title {
             color: var(--nexus-black); font-size: 2rem; font-weight: 800;
@@ -102,6 +106,7 @@
             margin-top: 1rem; font-weight: 600;
         }
         @media (max-width: 600px) {
+            .hero-section .logo { max-width: 280px; } /* Ajuste mobile */
             .hero-title { font-size: 2.2rem; }
             .hero-address { font-size: 1.3rem; }
             .hero-section { padding: 4rem 1.5rem; }
@@ -155,6 +160,7 @@
         .contact-info p { font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem;}
         .contact-info strong { color: var(--nexus-black); min-width: 90px; }
         .contact-info a { color: var(--nexus-orange-1); text-decoration: none; font-weight: 600; }
+        
         .realtor-details {
             margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee;
             display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
@@ -164,7 +170,16 @@
             letter-spacing: 1px; margin-bottom: 1rem; border-bottom: 3px solid var(--nexus-orange-1);
             padding-bottom: 0.5rem; display: inline-block;
         }
-        .realtor-details li { margin-bottom: 0.8rem; font-size: 1.1rem; color: #333; position: relative; padding-left: 1.5rem; }
+        
+        /* CORREÇÃO BULLETS DUPLOS */
+        .realtor-details ul {
+            list-style: none; /* Remove o bullet preto padrão */
+            padding-left: 0;
+        }
+        .realtor-details li { 
+            margin-bottom: 0.8rem; font-size: 1.1rem; color: #333; 
+            position: relative; padding-left: 1.5rem; 
+        }
         .realtor-details li::before {
             content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px;
             background-color: var(--nexus-orange-1); border-radius: 50%;
@@ -272,16 +287,6 @@
         }
         .chart-footer-text { font-size: 1.2rem; font-weight: 700; color: var(--nexus-black); }
 
-        /* --- 05 - COM A NEXUS SUAS CHANCES AUMENTAM --- */
-        .nexus-stats-section {
-            background-color: var(--bg-alt); padding: 5rem 2rem; text-align: center;
-        }
-        .nexus-stats-section .section-title { color: var(--nexus-black); }
-        .nexus-stats-text {
-            font-size: 1.6rem; line-height: 1.6; max-width: 950px; margin: 0 auto; font-weight: 400;
-        }
-        .nexus-stats-text strong { font-weight: 800; font-size: 2rem; color: var(--nexus-orange-1); }
-
         /* --- 06 - SERVIÇOS NEXUS --- */
         .nexus-services-section {
             background-color: var(--bg-light); padding: var(--section-padding); text-align: center;
@@ -307,7 +312,7 @@
             line-height: 1.3; margin: 0; max-width: 220px;
         }
 
-        /* --- 07 - PLANO DE MARKETING (CORRIGIDO HOVER E BIZARRICE) --- */
+        /* --- 07 - PLANO DE MARKETING --- */
         .marketing-section { background-color: var(--bg-alt); padding: var(--section-padding); }
         .marketing-section .section-title { letter-spacing: 1px; margin-bottom: 4rem; }
         
@@ -317,7 +322,6 @@
             text-align: center; display: flex; flex-direction: column; align-items: center;
         }
         
-        /* Estilo da Tag corrigido */
         .mkt-tag {
             display: inline-block; 
             background-color: var(--nexus-black); color: #ffffff;
@@ -325,14 +329,11 @@
             font-weight: 600; margin-bottom: 2.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
         }
-
-        /* Efeito Hover Corrigido */
         .mkt-block:hover .mkt-tag {
             background-color: var(--nexus-orange-1);
             color: var(--nexus-black);
             transform: scale(1.05);
         }
-
         .mkt-text {
             font-size: 1.25rem; color: #444; margin-top: 1.5rem; max-width: 750px; line-height: 1.6;
         }
@@ -376,15 +377,26 @@
             .mkt-img-vertical-align { height: auto; max-height: 300px; }
         }
 
-        /* --- 08 - OBJETIVO DO ESTUDO --- */
+        /* --- 08 - OBJETIVO DO ESTUDO (REMODELADO) --- */
         .objective-section {
             background-color: var(--bg-light); color: var(--nexus-black); padding: 5rem 2rem; text-align: center;
         }
         .objective-section .section-title {
-            color: var(--nexus-orange-1); /* TÍTULO LARANJA */
-            margin-bottom: 1.5rem;
+            color: var(--nexus-orange-1);
+            margin-bottom: 3rem;
         }
-        .objective-content { max-width: 850px; margin: 0 auto; font-size: 1.3rem; line-height: 1.7; }
+        .objective-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem; max-width: 1000px; margin: 0 auto;
+        }
+        .objective-card {
+            background: #fff; padding: 2rem; border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;
+        }
+        .objective-card h3 {
+            color: var(--nexus-black); font-size: 1.4rem; margin-bottom: 1rem;
+        }
+        .objective-card p { font-size: 1.2rem; color: #555; line-height: 1.5; }
 
         /* --- 09 - COMO É FEITO O ESTUDO --- */
         .methodology-section {
@@ -405,89 +417,6 @@
         @media (max-width: 600px) {
             .methodology-item { flex-direction: column; text-align: center; gap: 1rem; }
             .methodology-item p { text-align: center; }
-        }
-
-        /* --- 10 - VANTAGENS PRECIFICAÇÃO (CORRIGIDO: Texto Escuro) --- */
-        .advantages-section { background-color: var(--bg-light); padding: var(--section-padding); }
-        .advantages-section .section-title { 
-            color: var(--nexus-black); /* TÍTULO PRETO */
-            margin-bottom: 3rem; text-align: center; line-height: 1.2;
-        }
-        .advantages-list { display: flex; flex-direction: column; gap: 1.5rem; max-width: 950px; margin: 0 auto; }
-        .advantage-item { display: flex; align-items: center; gap: 1.5rem; }
-        .advantage-icon-svg { width: 45px; height: 45px; flex-shrink: 0; fill: #28a745; }
-        .advantage-bar {
-            background-color: #ffffff; /* Fundo Branco */
-            color: var(--nexus-black); /* Texto Preto */
-            border: 2px solid var(--nexus-orange-1); /* Borda Laranja */
-            padding: 1.2rem 2rem;
-            border-radius: 10px; width: 100%; text-align: center;
-            font-size: 1.3rem; font-weight: 600; box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-        @media (max-width: 600px) {
-            .advantage-item { flex-direction: column; gap: 0.5rem; }
-            .advantage-bar { font-size: 1.1rem; padding: 1rem; }
-        }
-
-        /* --- 11 - RELAÇÃO PREÇO X VENDA --- */
-        .price-relation-section {
-            background-color: var(--bg-alt); 
-            padding: var(--section-padding);
-            text-align: center;
-            color: var(--nexus-black);
-        }
-        .price-relation-section .section-title {
-            color: var(--nexus-black); margin-bottom: 1rem;
-        }
-        .price-subtitle {
-            color: var(--nexus-orange-1); font-size: 1.4rem; max-width: 850px;
-            margin: 0 auto 3rem auto; line-height: 1.5; font-weight: 600;
-        }
-        
-        .chart-container-scroll {
-            width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 15px;
-        }
-        .chart-container { 
-            max-width: 1000px; margin: 0 auto; position: relative; padding: 20px 0;
-            min-width: 800px;
-        }
-        
-        .boxes-row {
-            display: flex; justify-content: space-between; align-items: center;
-            gap: 10px; margin-bottom: 20px; flex-wrap: wrap;
-        }
-        .price-box {
-            padding: 12px 10px; border-radius: 10px; font-weight: 700; color: #333;
-            flex: 1; min-width: 80px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .box-green-3 { background-color: #4ade80; }
-        .box-green-2 { background-color: #86efac; }
-        .box-green-1 { background-color: #bbf7d0; }
-        .box-market { 
-            background-color: var(--nexus-orange-1); color: #fff;
-            border: 2px solid var(--nexus-orange-1); flex: 2; font-size: 1.2rem;
-        }
-        .box-red-1 { background-color: #fecaca; }
-        .box-red-2 { background-color: #fca5a5; }
-        .box-red-3 { background-color: #ef4444; color: white; }
-        
-        .timeline-arrow {
-            width: 100%; height: 3px; background-color: var(--nexus-black);
-            position: relative; margin-bottom: 15px;
-        }
-        .timeline-arrow::after {
-            content: ''; position: absolute; right: 0; top: -5px; width: 0; height: 0; 
-            border-top: 6px solid transparent; border-bottom: 6px solid transparent; 
-            border-left: 12px solid var(--nexus-black);
-        }
-        .time-labels-row {
-            display: flex; justify-content: space-between; color: var(--nexus-orange-1);
-            font-weight: 600; font-size: 1rem; margin-bottom: 2rem; padding: 0 10px;
-        }
-        .footer-labels {
-            display: flex; justify-content: space-between; color: var(--nexus-black);
-            font-weight: 700; font-size: 1.2rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 1rem;
         }
 
         /* --- 12 - ENCONTRANDO O PREÇO --- */
@@ -549,7 +478,7 @@
         .card.image-card { padding: 0; overflow: hidden; min-height: 280px; }
         .property-main-img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* --- 14 - IMÓVEIS SIMILARES (CORRIGIDO HARMONIA CARDS) --- */
+        /* --- 14 - IMÓVEIS SIMILARES --- */
         .comparables-section { 
             background-color: var(--bg-light); padding: 4rem 2rem; 
         }
@@ -566,7 +495,6 @@
         table a { color: var(--nexus-orange-1); text-decoration: none; font-weight: 600; }
         tbody tr:hover a { color: var(--nexus-orange-1); text-decoration: underline; }
         
-        /* CSS ATUALIZADO CARDS MÉDIA */
         .averages-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;
             width: 100%; max-width: 800px; margin-left: auto; margin-right: auto;
@@ -653,13 +581,16 @@
         .bar-label {
             font-size: 0.9rem; color: #777; margin-top: 8px; display: block; text-align: right;
         }
-        .thermo-wrapper { max-width: 850px; margin: 8rem auto 0 auto; text-align: center; }
-        .thermo-bar {
-            width: 100%; height: 26px; border-radius: 13px; background: #ddd;
-            background: linear-gradient(90deg, #ffe0b2 0%, var(--nexus-orange-1) 50%, var(--nexus-orange-2) 100%);
-            margin-bottom: 12px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); position: relative;
+
+        /* --- 05 - COM A NEXUS SUAS CHANCES AUMENTAM (MOVIDO) --- */
+        .nexus-stats-section {
+            background-color: var(--bg-alt); padding: 5rem 2rem; text-align: center;
         }
-        .thermo-labels { display: flex; justify-content: space-between; font-size: 1.1rem; color: #555; font-weight: 600; }
+        .nexus-stats-section .section-title { color: var(--nexus-black); }
+        .nexus-stats-text {
+            font-size: 1.6rem; line-height: 1.6; max-width: 950px; margin: 0 auto; font-weight: 400;
+        }
+        .nexus-stats-text strong { font-weight: 800; font-size: 2rem; color: var(--nexus-orange-1); }
 
         /* --- 16 - PRÓXIMOS PASSOS --- */
         .proximos-passos-section {
@@ -708,6 +639,17 @@
         }
         .current-step .step-label { color: var(--nexus-orange-2); font-weight: 800; }
         
+        /* BOTÃO DO CONTRATO */
+        .btn-contract {
+            display: inline-block; margin-top: 0.8rem;
+            background-color: var(--nexus-orange-1); color: white;
+            padding: 0.5rem 1.2rem; border-radius: 30px;
+            text-decoration: none; font-size: 1rem; font-weight: 700;
+            box-shadow: 0 4px 10px rgba(255, 87, 28, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-contract:hover { transform: translateY(-2px); background-color: var(--nexus-orange-2); }
+
         @media (max-width: 768px) {
             .timeline-container { flex-direction: column; align-items: flex-start; gap: 2.5rem; padding-left: 1rem; }
             .timeline-line { top: 20px; bottom: -20px; left: 35px; width: 6px; height: auto; right: auto; }
@@ -724,6 +666,7 @@
             .timeline-step { flex-direction: row; gap: 1.5rem; width: 100%; text-align: left; }
             .step-label { margin-top: 0; text-align: left; br { display: none; } }
             .step-marker-highlight { margin-top: 0; margin-left: -7px; }
+            .btn-contract { margin-top: 0; }
         }
 
         /* --- FOOTER --- */
@@ -874,15 +817,6 @@
             </div>
         </section>
 
-        <section class="nexus-stats-section">
-            <div class="container">
-                <h2 class="section-title">Com a Nexus suas chances aumentam</h2>
-                <p class="nexus-stats-text">
-                    Como focamos no sucesso do cliente, nosso tempo médio de venda é <strong>3X menor</strong> e nossa taxa de vendas é <strong>4x maior</strong> do que os indicadores da concorrência.
-                </p>
-            </div>
-        </section>
-
         <section class="nexus-services-section">
             <div class="container">
                 <h2 class="section-title">Serviços Nexus</h2>
@@ -897,7 +831,7 @@
                         <div class="service-icon-box">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 9c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1v4h2v-4h1l5 3V6L8 9H4zm15 3l-4 4h4v-4zm0-6l-4 4h4V6z"/></svg>
                         </div>
-                        <h3>Plano de Marketing (MKT)</h3>
+                        <h3>Plano de Marketing</h3>
                     </div>
                     <div class="service-item">
                         <div class="service-icon-box">
@@ -952,7 +886,7 @@
                         <img src="https://github.com/NexusPropriedades/estudo_de_mercado/blob/main/imagens_nexus_em/icone_logo_facebook.webp?raw=true
 ​" alt="Facebook" class="mkt-icon">
                         <img src="https://github.com/NexusPropriedades/estudo_de_mercado/blob/main/imagens_nexus_em/icone_logo_google.png?raw=true" alt="Google" class="mkt-icon">
-                        <img src="https://github.com/NexusPropriedades/estudo_de_mercado/blob/main/imagens_nexus_em/icone_logo_whatsapp.png?raw=true" alt="WhatsApp" class="mkt-icon">
+                        <img src="https://github.com/NexusPropriedades/estudo_de_mercado/blob/main/imagens_nexus_em/icone_logo_whatsapp%20-%20verde%20-%20sem%20fundo.png?raw=true" alt="WhatsApp" class="mkt-icon">
                     </div>
                     <p class="mkt-text">Presença forte onde seu público está, facilitando o contato direto.</p>
                 </div>
@@ -968,7 +902,7 @@
                 <div class="mkt-block">
                     <div class="mkt-tag">Listas de Transmissão</div>
                     <div class="mkt-flex-center" style="gap: 3rem;">
-                        <img src="https://github.com/NexusPropriedades/estudo_de_mercado/blob/main/imagens_nexus_em/icone_logo_whatsapp.png?raw=true" alt="WhatsApp Ícone" class="mkt-icon" style="width: 90px; height: 90px;">
+                        <img src="https://github.com/NexusPropriedades/estudo_de_mercado/blob/main/imagens_nexus_em/icone_logo_whatsapp%20-%20verde%20-%20sem%20fundo.png?raw=true" alt="WhatsApp Ícone" class="mkt-icon" style="width: 90px; height: 90px;">
                         <img src="https://github.com/NexusPropriedades/estudo_de_mercado/blob/main/imagens_nexus_em/Imagem%20Plano%20MKT%2018.png?raw=true" alt="Lista de Transmissão" class="mkt-img-vertical-align">
                     </div>
                     <p class="mkt-text">Divulgação ágil para nossa base de clientes e corretores.</p>
@@ -1005,10 +939,19 @@
         <section class="objective-section">
             <div class="container">
                 <h2 class="section-title">Objetivo do Estudo</h2>
-                <div class="objective-content">
-                    <p style="margin-bottom: 1rem;">Compreender como seu imóvel se posiciona no mercado é essencial para garantir uma venda segura e eficiente.</p>
-                    <p style="margin-bottom: 1rem;">Por isso, elaboramos um estudo personalizado, considerando as características do seu imóvel e comparando com ofertas semelhantes na região.</p>
-                    <p>O propósito deste levantamento é definir o valor de venda mais adequado — aquele que coloca seu imóvel em evidência, evitando que ele apenas sirva de vitrine para destacar os concorrentes.</p>
+                <div class="objective-grid">
+                    <div class="objective-card">
+                        <h3>Posicionamento</h3>
+                        <p>Compreender como seu imóvel se posiciona no mercado para uma venda segura.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h3>Comparativo</h3>
+                        <p>Análise detalhada comparando seu imóvel com ofertas semelhantes na região.</p>
+                    </div>
+                    <div class="objective-card">
+                        <h3>Valor Real</h3>
+                        <p>Definir um valor que coloca seu imóvel em evidência, e não como vitrine para a concorrência.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1032,73 +975,6 @@
                     <div class="methodology-item">
                         <img src="https://github.com/NexusPropriedades/estudo_de_mercado/blob/main/imagens_nexus_em/icone%20-%20como%20e%20feito%20o%20estudo%20de%20mercado%2004%20-%20sem%20fundo.png?raw=true" alt="Ícone Ajuste">
                         <p>Fatores de ajuste de preço</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="advantages-section">
-            <div class="container">
-                <h2 class="section-title">Vantagens da Precificação<br>Correta</h2>
-                <div class="advantages-list">
-                    <div class="advantage-item">
-                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
-                        <div class="advantage-bar">Propostas de valor mais vantajosas.</div>
-                    </div>
-                    <div class="advantage-item">
-                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
-                        <div class="advantage-bar">Maior interesse de compradores e, consequentemente, mais visitas.</div>
-                    </div>
-                    <div class="advantage-item">
-                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
-                        <div class="advantage-bar">Negociação concluída em menos tempo.</div>
-                    </div>
-                    <div class="advantage-item">
-                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
-                        <div class="advantage-bar">Corretores mais engajados em apresentar seu imóvel.</div>
-                    </div>
-                    <div class="advantage-item">
-                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
-                        <div class="advantage-bar">Redução do risco de desvalorização.</div>
-                    </div>
-                    <div class="advantage-item">
-                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
-                        <div class="advantage-bar">Exclusividade na representação do seu imóvel.</div>
-                    </div>
-                    <div class="advantage-item">
-                        <svg class="advantage-icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#28a745"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="#ffffff"/></svg>
-                        <div class="advantage-bar">Menos transtornos ao longo do processo.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="price-relation-section">
-            <div class="container">
-                <h2 class="section-title">Relação Preço x Venda</h2>
-                <p class="price-subtitle">Quanto mais adequado o preço for ao mercado, menor será o tempo de venda</p>
-                <p class="mobile-scroll-hint">Arraste para o lado <span style="font-size:1.2em">➝</span></p>
-                <div class="chart-container-scroll">
-                    <div class="chart-container">
-                        <div class="boxes-row">
-                            <div class="price-box box-green-3">-30%</div>
-                            <div class="price-box box-green-2">-20%</div>
-                            <div class="price-box box-green-1">-10%</div>
-                            <div class="price-box box-market">Preço de mercado</div>
-                            <div class="price-box box-red-1">+10%</div>
-                            <div class="price-box box-red-2">+20%</div>
-                            <div class="price-box box-red-3">+30%</div>
-                        </div>
-                        <div class="timeline-arrow"></div>
-                        <div class="time-labels-row">
-                            <div class="time-label">ex.: Semanas/Meses</div>
-                            <div class="time-label">ex.: Meses/Anos</div>
-                            <div class="time-label">ex.: Anos/Décadas</div>
-                        </div>
-                        <div class="footer-labels">
-                            <span>Menor tempo de venda</span>
-                            <span>Maior tempo de venda</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1385,18 +1261,15 @@
 
                 </div>
 
-                <div class="thermo-wrapper">
-                    <div class="thermo-labels" style="margin-bottom: 8px;">
-                        <span>Menor Probabilidade</span>
-                        <span>Maior Probabilidade</span>
-                    </div>
-                    <div class="thermo-bar"></div>
-                    <div class="thermo-labels">
-                        <span style="font-size: 0.85rem; opacity: 0.8;">Preço Alto</span>
-                        <span style="font-size: 0.85rem; opacity: 0.8;">Preço Atrativo</span>
-                    </div>
-                </div>
+            </div>
+        </section>
 
+        <section class="nexus-stats-section">
+            <div class="container">
+                <h2 class="section-title">Com a Nexus suas chances aumentam</h2>
+                <p class="nexus-stats-text">
+                    Como focamos no sucesso do cliente, nosso tempo médio de venda é <strong>3X menor</strong> e nossa taxa de vendas é <strong>4x maior</strong> do que os indicadores da concorrência.
+                </p>
             </div>
         </section>
 
@@ -1422,6 +1295,7 @@
                             <div class="inner-circle"></div>
                         </div>
                         <p class="step-label">Contrato</p>
+                        <a href="https://drive.google.com/file/d/1oYSsAu_oOKQM26qB7_btB-3fZaAdU-sV/view?usp=drive_link" target="_blank" class="btn-contract">Acessar Pasta</a>
                     </div>
 
                     <div class="timeline-step future-step">
